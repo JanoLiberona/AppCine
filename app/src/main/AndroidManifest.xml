@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCine">
         <activity
+
+            android:name=".PreferencesActivity"
+
             android:name=".RegisterActivity"
+
             android:exported="true" />
         <activity
             android:name=".MainActivity"
