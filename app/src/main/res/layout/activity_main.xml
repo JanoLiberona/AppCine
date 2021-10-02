@@ -48,7 +48,7 @@
             android:id="@+id/til_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/login_pass" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -76,7 +76,7 @@
             android:id="@+id/til_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/login_mail" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

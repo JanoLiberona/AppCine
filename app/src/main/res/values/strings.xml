@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AppCine</string>
+    
+    <!-- TEXTOS DE LOGIN -->
+    <string name="login_mail">Ingrese su mail</string>
+    <string name="login_pass">Ingrese su contraseña</string>
+
+    
+    
 </resources>
