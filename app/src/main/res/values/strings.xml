@@ -18,7 +18,9 @@
     <string name="reg_tilMail">ejemplo@correo.cl</string>
     <string name="reg_pass">Contraseña</string>
     <string name="reg_tilPass">Ingrese su contraseña</string>
+    <string name="reg_rpass">Repetir su contraseña</string>
     <string name="reg_tilRpass">Repetir su contraseña</string>
+    <string name="reg_bdate">Fecha de nacimiento</string>
     <string name="reg_tilBdate">Doble tap para calendario</string>
     <string name="reg_chk">Acepto las condiciones</string>
     <string name="reg_btnRegister">Registrarme</string>
