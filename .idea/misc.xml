@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_dashboard.xml" value="0.2028985507246377" />
         <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_preferences.xml" value="0.2028985507246377" />
+        <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_register.xml" value="0.2028985507246377" />
       </map>
     </option>
   </component>
