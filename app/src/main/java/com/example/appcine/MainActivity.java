@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnLogin = findViewById(R.id.btn_login);
         btnRegister = findViewById(R.id.btn_register);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -27,7 +28,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DashboardActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
