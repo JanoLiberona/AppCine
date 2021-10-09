@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AppCine</string>
+
+    <!-- TEXTOS DE LOGIN -->
+    <string name="login_mail">Ingrese su usuario o correo</string>
+    <string name="login_pass">Ingrese su contraseña</string>
+    <string name="login_btnLogin">Ingresar</string>
+    <string name="login_btnRegister">Registrar</string>
+
+    <!-- TEXTOS DE DASHBOARD -->
+    <string name="dash_welcome">Bienvenid@a tu dashboard</string>
+    <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus comentarios. ¡Disfruta tu estadía!</string>
+
+
+
 </resources>
