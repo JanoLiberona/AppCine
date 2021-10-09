@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reg_title"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.511"
@@ -72,8 +73,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:hint="hint" />
+            android:hint="@string/reg_tilMail"
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -102,7 +103,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/reg_tilPass" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -131,7 +132,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/reg_tilRpass" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -160,7 +161,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/reg_tilBdate" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
