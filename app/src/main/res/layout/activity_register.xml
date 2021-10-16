@@ -67,6 +67,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilMail"
             android:inputType="textEmailAddress" />
@@ -89,7 +90,8 @@
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilPass"
             android:inputType="textPassword"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/edit_text_shape"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -108,7 +110,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilRpass"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:background="@drawable/edit_text_shape"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -127,9 +130,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilBdate"
-
-
-            android:inputType="datetime" />
+            android:inputType="datetime"
+            android:background="@drawable/edit_text_shape"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -159,7 +161,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toBottomOf="@+id/chkTerminos" />
+        app:layout_constraintTop_toBottomOf="@+id/chkTerminos"
+        android:background="@drawable/btn_shape"/>
 
     <ImageView
         android:id="@+id/iconEmail"
