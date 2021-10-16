@@ -123,6 +123,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:background="@drawable/edit_text_shape"
             android:hint="@string/login_mail" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -146,6 +147,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:background="@drawable/edit_text_shape"
             android:hint="@string/login_pass" />
     </com.google.android.material.textfield.TextInputLayout>
