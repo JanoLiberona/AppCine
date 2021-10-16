@@ -291,7 +291,7 @@
         app:layout_constraintHorizontal_bias="0.366"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/iconAcción"
-        app:srcCompat="@drawable/Roadmovie" />
+        app:srcCompat="@drawable/roadmovie" />
 
     <ImageView
         android:id="@+id/iconFantasy"
