@@ -22,13 +22,15 @@
     <string name="reg_tilRpass">Repetir su contraseña</string>
     <string name="reg_bdate">Fecha de nacimiento</string>
     <string name="reg_tilBdate">Doble tap para calendario</string>
-    <string name="reg_chk">Acepto las condiciones</string>
+    <string name="reg_chkCondiciones">Acepto las condiciones</string>
     <string name="reg_btnRegister">Registrarme</string>
 
     <!-- TEXTOS DE PREFERENCIAS -->
     <string name="pref_title">Preferencias</string>
-    <string name="txt_saludoUsuario">Hola Usuario!</string>
-    <string name="txt_seleccioneGeneros">Selecciona tus géneros favoritos</string>
+    <string name="pref_saludoUsuario">Hola Usuario!</string>
+    <string name="pref_seleccioneGeneros">Selecciona tus géneros favoritos</string>
+    <string name="pref_btnRegistrar">Finalizar</string>
+    <string name="pref_skip">Omitir paso</string>
 
     <!-- TEXTOS DE CHECKBOX -->
     <string name="chkComedy">Comedia</string>
@@ -42,9 +44,9 @@
     <string name="chkWar">Guerra</string>
     <string name="chkAction">Acción</string>
     <string name="chkMusical">Musical</string>
-    <string name="chkSuperhero">Superheroes</string>
+    <string name="chkSuperhero">Super\nHeroes</string>
     <string name="chkAnimation">Animación</string>
-    <string name="chkRoadmovie">Road Movie</string>
+    <string name="chkRoadmovie">Road\nMovie</string>
     <string name="chkFantasy">Fantasía</string>
     <string name="chkSports">Deportes</string>
 
