@@ -57,6 +57,11 @@
         android:id="@+id/til_Correo"
         android:layout_width="311dp"
         android:layout_height="52dp"
+        app:expandedHintEnabled="false"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.85"
@@ -77,6 +82,11 @@
         android:id="@+id/til_Contraseña"
         android:layout_width="311dp"
         android:layout_height="52dp"
+        app:expandedHintEnabled="false"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.85"
@@ -87,17 +97,22 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilPass"
             android:inputType="textPassword"
-            android:visibility="visible"
-            android:background="@drawable/edit_text_shape"/>
+            android:visibility="visible" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_RContraseña"
         android:layout_width="311dp"
         android:layout_height="52dp"
+        app:expandedHintEnabled="false"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.85"
@@ -118,6 +133,11 @@
         android:id="@+id/til_FdNacimiento"
         android:layout_width="311dp"
         android:layout_height="52dp"
+        app:expandedHintEnabled="false"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.85"
@@ -128,10 +148,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilBdate"
-            android:inputType="datetime"
-            android:background="@drawable/edit_text_shape"/>
+            android:inputType="datetime" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -154,12 +174,12 @@
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="120dp"
+        android:layout_width="130dp"
         android:layout_height="60dp"
         android:fontFamily="@font/convergence"
         android:text="@string/login_btnRegister"
         android:textStyle="bold"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="#FFC107"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp"
         app:cornerRadius="30dp"
