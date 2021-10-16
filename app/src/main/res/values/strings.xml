@@ -30,6 +30,25 @@
     <string name="txt_saludoUsuario">Hola Usuario!</string>
     <string name="txt_seleccioneGeneros">Selecciona tus géneros favoritos</string>
 
+    <!-- TEXTOS DE CHECKBOX -->
+    <string name="chkComedy">Comedia</string>
+    <string name="chkHistory">Historia</string>
+    <string name="chkSciFi">Ciencia\nFicción</string>
+    <string name="chkRomance">Romance</string>
+    <string name="chkThriller">Thriller</string>
+    <string name="chkMystery">Misterio</string>
+    <string name="chkDrama">Drama</string>
+    <string name="chkHorror">Horror</string>
+    <string name="chkWar">Guerra</string>
+    <string name="chkAction">Acción</string>
+    <string name="chkMusical">Musical</string>
+    <string name="chkSuperhero">Superheroes</string>
+    <string name="chkAnimation">Animación</string>
+    <string name="chkRoadmovie">Road Movie</string>
+    <string name="chkFantasy">Fantasía</string>
+    <string name="chkSports">Deportes</string>
+
+
 
 
 

@@ -89,4 +89,232 @@
         app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/txtSaludo" />
+
+    <CheckBox
+        android:id="@+id/chkComedy"
+        android:layout_width="119dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/chkComedy"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkHistory"
+        android:layout_width="119dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/chkHistory"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkScifi"
+        android:layout_width="119dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/chkSciFi"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkRomance"
+        android:layout_width="119dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/chkRomance"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <ImageView
+        android:id="@+id/iconComedy"
+        android:layout_width="52dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/comedy" />
+
+    <ImageView
+        android:id="@+id/iconHistory"
+        android:layout_width="52dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/romanhelmet" />
+
+    <ImageView
+        android:id="@+id/iconScifi"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/scifi" />
+
+    <ImageView
+        android:id="@+id/iconRomance"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/romance" />
+
+    <ImageView
+        android:id="@+id/iconThriller"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconComedy"
+        app:srcCompat="@drawable/thriller" />
+
+    <ImageView
+        android:id="@+id/iconMystery"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconHistory"
+        app:srcCompat="@drawable/mystery" />
+
+    <ImageView
+        android:id="@+id/iconDrama"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconScifi"
+        app:srcCompat="@drawable/drama" />
+
+    <ImageView
+        android:id="@+id/iconHorror"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconRomance"
+        app:srcCompat="@drawable/horror" />
+
+    <ImageView
+        android:id="@+id/iconWar"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconThriller"
+        app:srcCompat="@drawable/rifle" />
+
+    <ImageView
+        android:id="@+id/iconAcción"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconMystery"
+        app:srcCompat="@drawable/action" />
+
+    <ImageView
+        android:id="@+id/iconMusical"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconDrama"
+        app:srcCompat="@drawable/quaver" />
+
+    <ImageView
+        android:id="@+id/iconSuperheroes"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconHorror"
+        app:srcCompat="@drawable/superheroe" />
+
+    <ImageView
+        android:id="@+id/iconAnimación"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconWar"
+        app:srcCompat="@drawable/eve" />
+
+    <ImageView
+        android:id="@+id/iconRoadmovie"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconAcción"
+        app:srcCompat="@drawable/Roadmovie" />
+
+    <ImageView
+        android:id="@+id/iconFantasy"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconMusical"
+        app:srcCompat="@drawable/dragon" />
+
+    <ImageView
+        android:id="@+id/iconSport"
+        android:layout_width="54dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconSuperheroes"
+        app:srcCompat="@drawable/sport" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
