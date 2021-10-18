@@ -6,31 +6,607 @@
     android:layout_height="match_parent"
     tools:context=".PreferencesActivity">
 
+    <Button
+        android:id="@+id/btnRegPreferences"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/convergence"
+        android:text="@string/pref_btnRegistrar"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkRoadmovie"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="40dp" />
+        app:layout_constraintGuide_begin="10dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="40dp" />
+        app:layout_constraintGuide_end="10dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="40dp" />
+        app:layout_constraintGuide_begin="20dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="40dp" />
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/txtPreferencias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/pref_title"
+        android:textColor="#FDFCFC"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/guideline8"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <TextView
+        android:id="@+id/txtSkip"
+        android:layout_width="94dp"
+        android:layout_height="14dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/pref_skip"
+        android:textColor="#FDFCFC"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toEndOf="@+id/btnRegPreferences"
+        app:layout_constraintTop_toBottomOf="@+id/chkFantasy"
+        app:layout_constraintVertical_bias="0.462" />
+
+    <TextView
+        android:id="@+id/txtSaludo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/pref_saludoUsuario"
+        android:textColor="#FDFCFC"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtPreferencias" />
+
+    <TextView
+        android:id="@+id/txtGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/pref_seleccioneGeneros"
+        android:textAlignment="textStart"
+        android:textColor="#FDFCFC"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtSaludo" />
+
+    <CheckBox
+        android:id="@+id/chkComedy"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="85dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkComedy"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.000"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkHistory"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="85dp"
+        android:text="@string/chkHistory"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:textColor="#FDFCFC"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.380"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkScifi"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="85dp"
+        android:text="@string/chkSciFi"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:textColor="#FDFCFC"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.730"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkRomance"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="85dp"
+        android:text="@string/chkRomance"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:textColor="#FDFCFC"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="1.05"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero" />
+
+    <CheckBox
+        android:id="@+id/chkThriller"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkThriller"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkComedy" />
+
+    <CheckBox
+        android:id="@+id/chkMystery"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkMystery"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.380"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkHistory" />
+
+    <CheckBox
+        android:id="@+id/chkDrama"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkDrama"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.730"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkScifi" />
+
+    <CheckBox
+        android:id="@+id/chkHorror"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkHorror"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="1.08"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkRomance" />
+
+    <CheckBox
+        android:id="@+id/chkWar"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkWar"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkThriller" />
+
+    <CheckBox
+        android:id="@+id/chkAccion"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkAction"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.380"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkMystery" />
+
+    <CheckBox
+        android:id="@+id/chkMusical"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkMusical"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.730"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkDrama" />
+
+    <CheckBox
+        android:id="@+id/chkSuperheroe"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkSuperhero"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="1.08"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkHorror" />
+
+    <CheckBox
+        android:id="@+id/chkAnimation"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkAnimation"
+        android:textColor="#FDFCFC"
+        android:textSize="14sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkWar" />
+
+    <CheckBox
+        android:id="@+id/chkRoadmovie"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkRoadmovie"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.400"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkAccion" />
+
+    <CheckBox
+        android:id="@+id/chkFantasy"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkFantasy"
+        android:textColor="#FDFCFC"
+        android:textSize="14sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.700"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkMusical" />
+
+    <CheckBox
+        android:id="@+id/chkSport"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/chkSports"
+        android:textColor="#FDFCFC"
+        android:textSize="15sp"
+        android:paddingLeft="-5sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="1.05"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/chkSuperheroe" />
+
+
+    <ImageView
+        android:id="@+id/iconComedy"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.050
+"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/comedy" />
+
+    <ImageView
+        android:id="@+id/iconHistory"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.350"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/romanhelmet" />
+
+    <ImageView
+        android:id="@+id/iconScifi"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.650"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/scifi" />
+
+    <ImageView
+        android:id="@+id/iconRomance"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.950"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGenero"
+        app:srcCompat="@drawable/romance" />
+
+    <ImageView
+        android:id="@+id/iconThriller"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.050"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconComedy"
+        app:srcCompat="@drawable/thriller" />
+
+    <ImageView
+        android:id="@+id/iconMystery"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.350"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconHistory"
+        app:srcCompat="@drawable/mystery" />
+
+    <ImageView
+        android:id="@+id/iconDrama"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.650"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconScifi"
+        app:srcCompat="@drawable/drama" />
+
+    <ImageView
+        android:id="@+id/iconHorror"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.950"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconRomance"
+        app:srcCompat="@drawable/horror" />
+
+    <ImageView
+        android:id="@+id/iconWar"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.050"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconThriller"
+        app:srcCompat="@drawable/rifle" />
+
+    <ImageView
+        android:id="@+id/iconAcción"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconMystery"
+        app:srcCompat="@drawable/action" />
+
+    <ImageView
+        android:id="@+id/iconMusical"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.650"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconDrama"
+        app:srcCompat="@drawable/quaver" />
+
+    <ImageView
+        android:id="@+id/iconSuperheroes"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.950"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconHorror"
+        app:srcCompat="@drawable/superheroe" />
+
+    <ImageView
+        android:id="@+id/iconAnimación"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.050"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconWar"
+        app:srcCompat="@drawable/eve" />
+
+    <ImageView
+        android:id="@+id/iconRoadmovie"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconAcción"
+        app:srcCompat="@drawable/roadmovie" />
+
+    <ImageView
+        android:id="@+id/iconFantasy"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.650"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconMusical"
+        app:srcCompat="@drawable/dragon" />
+
+    <ImageView
+        android:id="@+id/iconSport"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.950"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/iconSuperheroes"
+        app:srcCompat="@drawable/sport" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

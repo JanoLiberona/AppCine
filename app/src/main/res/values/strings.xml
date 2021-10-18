@@ -12,5 +12,46 @@
     <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus comentarios. ¡Disfruta tu estadía!</string>
 
 
+    <!-- TEXTOS DE REGISTRO -->
+    <string name="reg_title">Registro de usuario nuevo</string>
+    <string name="reg_mail">Correo</string>
+    <string name="reg_tilMail">ejemplo@correo.cl</string>
+    <string name="reg_pass">Contraseña</string>
+    <string name="reg_tilPass">Ingrese contraseña</string>
+    <string name="reg_rpass">Repetir contraseña</string>
+    <string name="reg_tilRpass">Repetir su contraseña</string>
+    <string name="reg_bdate">Fecha de nacimiento</string>
+    <string name="reg_tilBdate">Doble tap para calendario</string>
+    <string name="reg_chkCondiciones">Acepto las condiciones</string>
+    <string name="reg_btnRegister">Registrarme</string>
+
+    <!-- TEXTOS DE PREFERENCIAS -->
+    <string name="pref_title">Preferencias</string>
+    <string name="pref_saludoUsuario">Hola Usuario!</string>
+    <string name="pref_seleccioneGeneros">Selecciona tus géneros favoritos</string>
+    <string name="pref_btnRegistrar">Finalizar</string>
+    <string name="pref_skip">Omitir paso</string>
+
+    <!-- TEXTOS DE CHECKBOX -->
+    <string name="chkComedy">Comedia</string>
+    <string name="chkHistory">Historia</string>
+    <string name="chkSciFi">Ciencia\nFicción</string>
+    <string name="chkRomance">Romance</string>
+    <string name="chkThriller">Thriller</string>
+    <string name="chkMystery">Misterio</string>
+    <string name="chkDrama">Drama</string>
+    <string name="chkHorror">Horror</string>
+    <string name="chkWar">Guerra</string>
+    <string name="chkAction">Acción</string>
+    <string name="chkMusical">Musical</string>
+    <string name="chkSuperhero">Super\nHeroes</string>
+    <string name="chkAnimation">Animación</string>
+    <string name="chkRoadmovie">Road\nMovie</string>
+    <string name="chkFantasy">Fantasía</string>
+    <string name="chkSports">Deportes</string>
+
+
+
+
 
 </resources>
