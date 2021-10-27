@@ -1,10 +1,12 @@
 package com.example.appcine;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,10 +16,10 @@ import java.util.ArrayList;
 public class DashboardActivity extends AppCompatActivity {
 
     TextView txtNameUser; //variable que usaremos para el nombre del usuario
-    String [] comentarios;
-    ListView lvComentarios;
     RecyclerView rcvComentarios;
-    ArrayList<String> listComentarios;
+    ListView lvTitles;
+    String [] commentedTitles;
+    ArrayList<String> listTitles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +33,40 @@ public class DashboardActivity extends AppCompatActivity {
         txtNameUser.setText(nameUser);
 
         //_________ List view ___________cómo lo hizo el profe,03:02 clase del 23/09/2021 //
-        lvComentarios = findViewById(R.id.tv_ListadoComentarios);
-        listComentarios = new ArrayList<String>();
-        listComentarios.add("Un bodrio");
-        listComentarios.add("Película culiá");
-        listComentarios.add("Mejor que me ha pasado");
-        listComentarios.add("Malísima");
-        listComentarios.add("Mala mala");
-        listComentarios.add("Original");
-        listComentarios.add("Rasca");
-        listComentarios.add("Repulsivamente... buena!");
-        listComentarios.add("Demasiado buena para ser verdad");
-        listComentarios.add("Despreciable");
-        listComentarios.add("Buenísima");
-        listComentarios.add("Caca");
-        listComentarios.add("Sin carne");
+        lvTitles = findViewById(R.id.tv_ListadoTitulos);
+        listTitles = new ArrayList<String>();
+        listTitles.add("El principe del RAP");
+        listTitles.add("Space Jam");
+        listTitles.add("MIB Hombres de Negro");
+        listTitles.add("Malcolm in the middle");
+        listTitles.add("Bob Esponja");
+        listTitles.add("Los Padrinos mágicos");
+        listTitles.add("Art attack!");
+        listTitles.add("Mi pobre angelito");
+        listTitles.add("Roger Rabbit");
+        listTitles.add("El rey león");
+        listTitles.add("El Chavo del 8");
+        listTitles.add("Kablam!");
+        listTitles.add("La vida moderna de Rocko");
 
-        ArrayAdapter<String> arrayAdapterComentarios = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listComentarios);
-        lvComentarios.setAdapter(arrayAdapterComentarios);
+        commentedTitles = new ArrayList<String>(listTitles).toArray(new String[0]); //ayuda del IDE. Parece funcionar
+
+        for (int i = 0; i < commentedTitles.length; i++){
+            listTitles.add(commentedTitles[i]);
+        }
+
+        ArrayAdapter<String> arrayAdapterComentarios = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listTitles);
+        lvTitles.setAdapter(arrayAdapterComentarios);
+
+        lvTitles.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String titleName = commentedTitles[position];
+                Intent intent = new Intent(view.getContext(),TitleActivity.class);
+                intent.putExtra("nameCommentedTitles",titleName);
+                startActivity(intent);
+            }
+        });
 
 
 

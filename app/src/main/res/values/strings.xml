@@ -9,9 +9,12 @@
 
     <!-- TEXTOS DE DASHBOARD -->
     <string name="dash_welcome">Bienvenid@ a tu dashboard</string>
-    <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus comentarios. ¡Disfruta tu estadía!</string>
+    <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus títulos comentados. ¡Disfruta tu estadía!</string>
     <string name="dash_Nombreusuario">nombreUsuario</string>
-    <string name="dash_ListComentarios">Listado de comentarios</string>
+    <string name="dash_ListTitles">Listado de títulos comentados</string>
+
+    <!-- TEXTOS DE REGISTRO -->
+    <string name="ti_titleName">Título</string>
 
     <!-- TEXTOS DE REGISTRO -->
     <string name="reg_title">Registro de usuario nuevo</string>
@@ -30,8 +33,6 @@
     <string name="pref_title">Preferencias</string>
     <string name="txt_saludoUsuario">Hola Usuario!</string>
     <string name="txt_seleccioneGeneros">Selecciona tus géneros favoritos</string>
-
-
 
 
 </resources>
