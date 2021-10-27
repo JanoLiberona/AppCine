@@ -8,9 +8,10 @@
     <string name="login_btnRegister">Registrar</string>
 
     <!-- TEXTOS DE DASHBOARD -->
-    <string name="dash_welcome">Bienvenid@a tu dashboard</string>
+    <string name="dash_welcome">Bienvenid@ a tu dashboard</string>
     <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus comentarios. ¡Disfruta tu estadía!</string>
     <string name="dash_Nombreusuario">nombreUsuario</string>
+    <string name="dash_ListComentarios">Listado de comentarios</string>
 
     <!-- TEXTOS DE REGISTRO -->
     <string name="reg_title">Registro de usuario nuevo</string>

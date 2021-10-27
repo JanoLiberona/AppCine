@@ -74,9 +74,10 @@
 
     <TextView
         android:id="@+id/nameUser"
-        android:layout_width="185dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:fontFamily="@font/convergence"
+        android:gravity="center"
         android:shadowColor="#000000"
         android:shadowDx="2"
         android:shadowDy="5"
@@ -91,4 +92,40 @@
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome"
         app:layout_constraintVertical_bias="0.039" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvComentarios"
+        android:layout_width="320dp"
+        android:layout_height="235dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:textColor="#FDFCFC"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ListadoComentarios"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <ListView
+        android:id="@+id/tv_ListadoComentarios"
+        android:layout_width="320dp"
+        android:layout_height="235dp"
+        android:fontFamily="@font/convergence"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:text="@string/dash_ListComentarios"
+        android:textColor="#FDFCFC"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toBottomOf="@+id/tv_presentation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
