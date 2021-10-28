@@ -6,6 +6,7 @@
     <string name="login_pass">Ingrese su contraseña</string>
     <string name="login_btnLogin">Ingresar</string>
     <string name="login_btnRegister">Registrar</string>
+    <string name="login_fogetPass">Olvidé mi contraseña</string>
 
     <!-- TEXTOS DE DASHBOARD -->
     <string name="dash_welcome">Bienvenid@a tu dashboard</string>
@@ -13,7 +14,7 @@
 
 
     <!-- TEXTOS DE REGISTRO -->
-    <string name="reg_title">Registro de usuario nuevo</string>
+    <string name="reg_title">Registrarse</string>
     <string name="reg_mail">Correo</string>
     <string name="reg_tilMail">ejemplo@correo.cl</string>
     <string name="reg_pass">Contraseña</string>
@@ -49,9 +50,6 @@
     <string name="chkRoadmovie">Road\nMovie</string>
     <string name="chkFantasy">Fantasía</string>
     <string name="chkSports">Deportes</string>
-
-
-
 
 
 </resources>

@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_Correo"
+        android:id="@+id/til_correo"
         android:layout_width="311dp"
         android:layout_height="52dp"
         app:expandedHintEnabled="false"
@@ -91,7 +91,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toBottomOf="@+id/til_Correo"
+        app:layout_constraintTop_toBottomOf="@+id/til_correo"
         app:layout_constraintVertical_bias="0.029999971">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -193,10 +193,10 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toStartOf="@+id/til_Correo"
+        app:layout_constraintEnd_toStartOf="@+id/til_correo"
         app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="@+id/til_Correo"
+        app:layout_constraintTop_toTopOf="@+id/til_correo"
         app:layout_constraintVertical_bias="0.015"
         app:srcCompat="@drawable/email" />
 
