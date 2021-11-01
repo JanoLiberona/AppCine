@@ -551,6 +551,255 @@
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iconMusical"
+                                android:layout_width="79dp"
+                                android:layout_height="79dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="48dp"
+                                app:srcCompat="@drawable/quaver" />
+
+                            <CheckBox
+                                android:id="@+id/chkMusica"
+                                android:layout_width="120dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginEnd="10dp"
+                                android:paddingLeft="-5sp"
+                                android:text="@string/chkMusical"
+                                android:textSize="15sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iconSuperHero"
+                                android:layout_width="79dp"
+                                android:layout_height="79dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="48dp"
+                                app:srcCompat="@drawable/superheroe" />
+
+                            <CheckBox
+                                android:id="@+id/chkSuperHero"
+                                android:layout_width="120dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginEnd="10dp"
+                                android:paddingLeft="-5sp"
+                                android:text="@string/chkSuperhero"
+                                android:textSize="15sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iconAnimation"
+                                android:layout_width="79dp"
+                                android:layout_height="79dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="48dp"
+                                app:srcCompat="@drawable/eve" />
+
+                            <CheckBox
+                                android:id="@+id/chkAnimation"
+                                android:layout_width="120dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginEnd="10dp"
+                                android:paddingLeft="-5sp"
+                                android:text="@string/chkAnimation"
+                                android:textSize="15sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/roadMovie"
+                                android:layout_width="79dp"
+                                android:layout_height="79dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="48dp"
+                                app:srcCompat="@drawable/roadmovie" />
+
+                            <CheckBox
+                                android:id="@+id/chkRoadMovie"
+                                android:layout_width="120dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginEnd="10dp"
+                                android:paddingLeft="-5sp"
+                                android:text="@string/chkRoadmovie"
+                                android:textSize="15sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iconFantasy"
+                                android:layout_width="79dp"
+                                android:layout_height="79dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="48dp"
+                                app:srcCompat="@drawable/dragon" />
+
+                            <CheckBox
+                                android:id="@+id/chkFantasy"
+                                android:layout_width="120dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginEnd="10dp"
+                                android:paddingLeft="-5sp"
+                                android:text="@string/chkFantasy"
+                                android:textSize="15sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iconSorts"
+                                android:layout_width="79dp"
+                                android:layout_height="79dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="48dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="48dp"
+                                app:srcCompat="@drawable/sport" />
+
+                            <CheckBox
+                                android:id="@+id/chkSports"
+                                android:layout_width="120dp"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="85dp"
+                                android:layout_marginEnd="10dp"
+                                android:paddingLeft="-5sp"
+                                android:text="@string/chkSports"
+                                android:textSize="15sp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
 
