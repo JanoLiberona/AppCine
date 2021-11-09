@@ -21,9 +21,11 @@
         <entry key="app/src/main/res/layout/activity_register_tab_fragment.xml" value="0.453125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22036474164133737" />
         <entry key="app/src/main/res/layout/fragment_preferences.xml" value="0.32447916666666665" />
+        <entry key="app/src/main/res/layout/header.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/login_tab_fragment.xml" value="0.375" />
         <entry key="app/src/main/res/layout/preferences_fragment.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/register_tab_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.32447916666666665" />
       </map>
     </option>
   </component>

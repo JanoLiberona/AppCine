@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single"
+        android:fontFamily="@font/convergence"> <!-- single significa que solo un elemento puede ser seleccionado a la vez -->
+
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            android:icon="@drawable/homeicon"/>
+
+        <item
+            android:id="@+id/nav_comments"
+            android:title="Comentarios"
+            android:icon="@drawable/homeicon"/>
+
+        <item
+            android:id="@+id/nav_preferences"
+            android:title="Editar preferencias"
+            android:icon="@drawable/homeicon"/>
+
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Perfil"
+            android:icon="@drawable/homeicon"/>
+
+    </group>
+
+    <group>
+
+        <item
+            android:title="Perfil">
+            <menu>
+                <item
+                    android:id="@+id/nav_profile_menu"
+                    android:title="@string/home"
+                    android:icon="@drawable/homeicon"/>
+
+                <item
+                    android:id="@+id/nav_profile_exit"
+                    android:title="Salir"
+                    android:icon="@drawable/homeicon"/>
+            </menu>
+        </item>
+
+    </group>
+
+
+</menu>
