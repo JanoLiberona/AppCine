@@ -14,4 +14,10 @@
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@drawable/fondovioleta</item>
     </style>
+    <style name="Theme.AppCine.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.AppCine.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.AppCine.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -47,7 +47,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_Contraseña"
+        android:id="@+id/til_contraseña"
         android:layout_width="262dp"
         android:layout_height="53dp"
         app:boxStrokeWidth="0dp"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_Contraseña"
+        app:layout_constraintTop_toBottomOf="@+id/til_contraseña"
         app:layout_constraintVertical_bias="0.01999998">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -119,7 +119,8 @@
             android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/convergence"
             android:hint="@string/reg_tilBdate"
-            android:inputType="datetime" />
+            android:inputType="datetime"
+            android:focusable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -174,10 +175,10 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/til_Contraseña"
+        app:layout_constraintEnd_toStartOf="@+id/til_contraseña"
         app:layout_constraintHorizontal_bias="0.645"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/til_Contraseña"
+        app:layout_constraintTop_toTopOf="@+id/til_contraseña"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/password" />
 
