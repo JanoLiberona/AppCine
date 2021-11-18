@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        /*
         new Handler().postDelayed(new Runnable(){
             public void run(){
                 // Cuando pasen los 4 segundos, pasamos a la actividad principal de la aplicación
@@ -27,5 +27,19 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             };
         }, DURACION_SPLASH);
+        */
+        TimerTask carga = new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+
+                startActivity(intent);
+                finish();
+            }
+        };
+
+        Timer tiempo = new Timer();
+        tiempo.schedule(carga, 4000);
+
     }
 }
