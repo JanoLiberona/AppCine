@@ -25,7 +25,7 @@ public class PreferencesActivity extends AppCompatActivity {
         btnPreferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DashboardActivity.class);
+                Intent intent = new Intent(view.getContext(), Dashboard.class);
                 startActivity(intent);
             }
         });
@@ -36,7 +36,7 @@ public class PreferencesActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), DashboardActivity.class);
+                Intent intent = new Intent(view.getContext(), Dashboard.class);
                 startActivity(intent);
             }
         });
