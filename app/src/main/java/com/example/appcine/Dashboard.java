@@ -31,7 +31,7 @@ public class Dashboard extends AppCompatActivity {
 
 
     //TMDB API JSON link filtrado por populares: https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5
-    private static String JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5";
+    private static String JSON_URL = "https://api.themoviedb.org/3/movie/upcoming?api_key=3b7f550a381e29852ffb145508b4bdb5";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
