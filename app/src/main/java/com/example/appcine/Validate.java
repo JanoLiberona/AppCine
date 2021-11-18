@@ -4,7 +4,7 @@ import android.util.Patterns;
 
 import java.util.regex.Pattern;
 
-public class Validator {
+public class Validate {
 
     //Validación contraseña
     public boolean checkPassLength(String pass) {
@@ -26,8 +26,7 @@ public class Validator {
     public boolean checkNull(String text) {
         if (text.equals("") || text.length() == 0 || text.trim().equals("")){
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }

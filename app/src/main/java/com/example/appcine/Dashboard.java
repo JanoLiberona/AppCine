@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +51,14 @@ public class Dashboard extends AppCompatActivity {
         //Tarea Asíncrona
         GetData getData = new GetData();
         getData.execute();
+
+        onBackPressed();
+
+    }
+
+    @Override
+    public void onBackPressed(){
+
     }
 
 
@@ -80,7 +89,7 @@ public class Dashboard extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }finally {
+                } finally {
                     if(urlConnection != null) {
                         urlConnection.disconnect();
                     }
@@ -121,6 +130,20 @@ public class Dashboard extends AppCompatActivity {
         MovieAdapter adapter = new MovieAdapter(this, movieList);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new MovieAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemview, int position) {
+                String title = movieList.get(position).getName();
+                String id = movieList.get(position).getId();
+                String img = movieList.get(position).getImg();
+
+                Intent intent = new Intent(Dashboard.this, MovieDetailItem.class);
+                intent.putExtra("title", title);
+                intent.putExtra("id", id);
+                intent.putExtra("poster_path", img);
+                startActivity(intent);
+            }
+        });
     }
 
 }

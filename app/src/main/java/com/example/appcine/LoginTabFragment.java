@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,7 +64,7 @@ public class LoginTabFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Validator validator = new Validator();
+                Validate validate = new Validate();
                 mail = tilUser.getEditText().getText().toString();
                 pass = tilPass.getEditText().getText().toString();
                 if (validarDatos() == 0) {
@@ -80,16 +79,16 @@ public class LoginTabFragment extends Fragment {
     }
 
     public int validarDatos() {
-        Validator validator = new Validator();
+        Validate validate = new Validate();
         int count = 0;
 
-        if (!validator.checkNull(mail)) {
+        if (!validate.checkNull(mail)) {
             tilUser.setError(getString(R.string.campo_nulo));
             count ++;
         } else {
             tilUser.setError(null);
 
-            if (validator.checkMail(mail)) {
+            if (validate.checkMail(mail)) {
                 tilUser.setError(null);
             } else {
                 tilUser.setError(getString(R.string.error_login_correoFormat));
@@ -97,7 +96,7 @@ public class LoginTabFragment extends Fragment {
             }
         }
 
-        if (!validator.checkNull(pass)) {
+        if (!validate.checkNull(pass)) {
             tilPass.setError(null);
             tilPass.setError(getString(R.string.campo_nulo));
             count++;

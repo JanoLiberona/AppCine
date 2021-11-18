@@ -1,6 +1,7 @@
 package com.example.appcine;
 
 import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.List;
 
@@ -52,7 +58,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         //Usando Glide para mostrar la imagen:
         //Documentación de Glide ---> https://bumptech.github.io/glide/doc/download-setup.html
         //https://image.tmdb.org/t/p/w500/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg
-        Glide.with(mContext).load("https://image.tmdb.org/t/p/w500"+mData.get(position).getImg()).into(holder.img);
+        Glide.with(mContext)
+                .load("https://image.tmdb.org/t/p/w500"+mData.get(position).getImg())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.img);
+
     }
 
     @Override
@@ -80,6 +90,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                         if(position != RecyclerView.NO_POSITION){
                             listener.onItemClick(itemView,position);
                         }
+
                     }
                 }
             });
