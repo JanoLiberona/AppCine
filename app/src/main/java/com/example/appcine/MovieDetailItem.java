@@ -35,7 +35,7 @@ public class MovieDetailItem extends AppCompatActivity {
 
         titleName.setText(title);
         titleId.setText(id);
-        Glide.with(this).load(img).into(titleImage);
+        Glide.with(this).load("https://image.tmdb.org/t/p/w500"+img).into(titleImage);
 
     }
 }

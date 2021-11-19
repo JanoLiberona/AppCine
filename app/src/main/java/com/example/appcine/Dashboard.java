@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -136,7 +138,6 @@ public class Dashboard extends AppCompatActivity {
                 String title = movieList.get(position).getName();
                 String id = movieList.get(position).getId();
                 String img = movieList.get(position).getImg();
-
                 Intent intent = new Intent(Dashboard.this, MovieDetailItem.class);
                 intent.putExtra("title", title);
                 intent.putExtra("id", id);
