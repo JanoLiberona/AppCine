@@ -16,6 +16,7 @@
             android:exported="false" />
         <activity
             android:name=".Dashboard"
+            android:theme="@style/Theme.AppCine.NoStatusBar"
             android:exported="false" />
         <activity
             android:name=".PreferencesActivity"

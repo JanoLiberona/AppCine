@@ -12,7 +12,7 @@
         android:layout_weight="1"
         app:cardCornerRadius="12dp"
         app:cardElevation="5dp"
-        app:cardBackgroundColor="#F7F7F7"
+        app:cardBackgroundColor="#262837"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,6 +37,27 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <ImageView
+                android:id="@+id/ivComment"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="45dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/message" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lfLike"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="14dp"
+                app:lottie_rawRes="@raw/likebutton"
+                app:lottie_loop="false"/>
+
             <TextView
                 android:id="@+id/name_txt"
                 android:layout_width="159dp"
@@ -52,6 +73,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="TextView"
                 android:textAlignment="center"
+                android:textColor="#b7bac4"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
@@ -65,12 +87,13 @@
                 android:layout_height="26dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="11dp"
-                android:layout_marginEnd="6dp"
-                android:layout_marginBottom="44dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="57dp"
                 android:layout_toEndOf="@+id/imageView"
                 android:text="TextView"
                 android:textSize="11dp"
+                android:textColor="#646676"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/name_txt"
                 app:layout_constraintHorizontal_bias="0.508"

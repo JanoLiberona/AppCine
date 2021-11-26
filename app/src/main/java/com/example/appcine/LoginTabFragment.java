@@ -1,5 +1,6 @@
 package com.example.appcine;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -12,17 +13,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginTabFragment extends Fragment {
 
     //Inicialización variables
     TextInputLayout tilUser, tilPass;
-    TextView tvTitle;
+    TextView tvTitle, forgetPass;
     Button btnLogin;
-    TextView forgetPass;
     ImageView iconEmail, iconPass;
     String mail, pass;
+    CardView cvLogin;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment, container,false);
@@ -35,30 +37,18 @@ public class LoginTabFragment extends Fragment {
         btnLogin = root.findViewById(R.id.btn_login);
         iconEmail = root.findViewById(R.id.iconEmail);
         iconPass = root.findViewById(R.id.iconPass);
-
+        cvLogin = root.findViewById(R.id.cv_login);
 
         //Animaciones
-        //Setteando el lugar donde comenzarán los widgets
-        tilUser.setTranslationX(1000);
-        tilPass.setTranslationX(1000);
-        forgetPass.setTranslationX(1000);
-        iconEmail.setTranslationX(-1000);
-        iconPass.setTranslationX(-1000);
-        tvTitle.setTranslationY(800);
         btnLogin.setTranslationY(800);
+        cvLogin.setTranslationY(1000);
 
-        //Difuminación
-        tvTitle.setAlpha(0);
+        btnLogin.setAlpha(0);
+        cvLogin.setAlpha(0);
 
+        btnLogin.animate().translationY(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        cvLogin.animate().translationY(0).alpha(1).setDuration(800).setStartDelay(300).start();
 
-        //Animación a la posición original
-        tilUser.animate().translationX(0).setDuration(800).setStartDelay(300).start();
-        tilPass.animate().translationX(0).setDuration(800).setStartDelay(300).start();
-        iconEmail.animate().translationX(0).setDuration(800).setStartDelay(300).start();
-        iconPass.animate().translationX(0).setDuration(800).setStartDelay(300).start();
-        forgetPass.animate().translationX(0).setDuration(800).setStartDelay(300).start();
-        btnLogin.animate().translationY(0).setDuration(800).setStartDelay(300).start();
-        tvTitle.animate().translationY(0).alpha(1).setDuration(700).setStartDelay(300).start();
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {

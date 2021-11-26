@@ -1,6 +1,7 @@
 package com.example.appcine;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,9 @@ public class PreferencesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
+
+        //Edge to edge screen
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         btnPreferences = findViewById(R.id.btnRegPreferences);
 

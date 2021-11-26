@@ -1,6 +1,7 @@
 package com.example.appcine;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +22,9 @@ public class MovieDetailItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail_item);
+
+        //Edge to edge screen
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         TextView titleName = findViewById(R.id.titleName);
         TextView titleId = findViewById(R.id.titleId);

@@ -1,18 +1,23 @@
 package com.example.appcine;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
@@ -33,7 +38,7 @@ public class Dashboard extends AppCompatActivity {
 
 
     //TMDB API JSON link filtrado por populares: https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5
-    private static String JSON_URL = "https://api.themoviedb.org/3/movie/upcoming?api_key=3b7f550a381e29852ffb145508b4bdb5";
+    private static String JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
@@ -43,6 +48,9 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        //Edge to edge screen
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         movieList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerview);
@@ -54,6 +62,7 @@ public class Dashboard extends AppCompatActivity {
         GetData getData = new GetData();
         getData.execute();
 
+        //No permite volver atrás
         onBackPressed();
 
     }

@@ -4,206 +4,237 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1f1d2c"
     tools:context=".RegisterTabFragment">
 
-    <TextView
-        android:id="@+id/txtRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/convergence"
-        android:text="@string/reg_title"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        app:cardBackgroundColor="#262837"
+        app:cardCornerRadius="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.26">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_correo"
-        android:layout_width="262dp"
-        android:layout_height="53dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:expandedHintEnabled="false"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRegistro"
-        app:layout_constraintVertical_bias="0.050000012">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_shape"
-            android:fontFamily="@font/convergence"
-            android:hint="@string/reg_tilMail"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_contraseña"
-        android:layout_width="262dp"
-        android:layout_height="53dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:expandedHintEnabled="false"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_correo"
-        app:layout_constraintVertical_bias="0.01999998">
+            <TextView
+                android:id="@+id/txtRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/convergence"
+                android:text="@string/reg_title"
+                android:textColor="#c4c7ca"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.043" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_shape"
-            android:fontFamily="@font/convergence"
-            android:hint="@string/reg_tilPass"
-            android:inputType="textPassword"
-            android:visibility="visible" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_correo"
+                android:layout_width="262dp"
+                android:layout_height="53dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:expandedHintEnabled="true"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.19">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_RContraseña"
-        android:layout_width="262dp"
-        android:layout_height="53dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:expandedHintEnabled="false"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_contraseña"
-        app:layout_constraintVertical_bias="0.01999998">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_shape"
+                    android:fontFamily="@font/convergence"
+                    android:hint="@string/reg_tilMail"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#f8fbfc"
+                    android:textColorHint="#707281" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_shape"
-            android:fontFamily="@font/convergence"
-            android:hint="@string/reg_tilRpass"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_contraseña"
+                android:layout_width="262dp"
+                android:layout_height="53dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_correo"
+                app:layout_constraintVertical_bias="0.050000012">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_FdNacimiento"
-        android:layout_width="262dp"
-        android:layout_height="53dp"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:expandedHintEnabled="false"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_RContraseña"
-        app:layout_constraintVertical_bias="0.01999998">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_shape"
+                    android:fontFamily="@font/convergence"
+                    android:hint="@string/reg_tilPass"
+                    android:inputType="textPassword"
+                    android:textColor="#f8fbfc"
+                    android:textColorHint="#707281"
+                    android:visibility="visible" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_shape"
-            android:fontFamily="@font/convergence"
-            android:hint="@string/reg_tilBdate"
-            android:inputType="datetime"
-            android:focusable="false"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_RContraseña"
+                android:layout_width="262dp"
+                android:layout_height="53dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_contraseña"
+                app:layout_constraintVertical_bias="0.06999999">
 
-    <CheckBox
-        android:id="@+id/chkTerminos"
-        android:layout_width="229dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/convergence"
-        android:shadowRadius="10"
-        android:text="@string/reg_chkCondiciones"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_FdNacimiento"
-        app:layout_constraintVertical_bias="0.028" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_shape"
+                    android:fontFamily="@font/convergence"
+                    android:hint="@string/reg_tilRpass"
+                    android:inputType="textPassword"
+                    android:textColor="#f8fbfc"
+                    android:textColorHint="#707281" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_FdNacimiento"
+                android:layout_width="262dp"
+                android:layout_height="53dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.74"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_RContraseña"
+                app:layout_constraintVertical_bias="0.120000005">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_shape"
+                    android:focusable="false"
+                    android:fontFamily="@font/convergence"
+                    android:hint="@string/reg_tilBdate"
+                    android:inputType="datetime"
+                    android:textColor="#f8fbfc"
+                    android:textColorHint="#707281" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <CheckBox
+                android:id="@+id/chkTerminos"
+                android:layout_width="225dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/convergence"
+                android:shadowRadius="10"
+                android:text="@string/reg_chkCondiciones"
+                android:textColor="#c4c7ca"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/til_FdNacimiento"
+                app:layout_constraintVertical_bias="0.448" />
+
+            <ImageView
+                android:id="@+id/iconEmail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/til_correo"
+                app:layout_constraintHorizontal_bias="0.645"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/til_correo"
+                app:layout_constraintVertical_bias="0.04000002"
+                app:srcCompat="@drawable/email" />
+
+            <ImageView
+                android:id="@+id/iconUnlock"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/til_contraseña"
+                app:layout_constraintHorizontal_bias="0.62"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/til_contraseña"
+                app:layout_constraintVertical_bias="0.04000002"
+                app:srcCompat="@drawable/password" />
+
+            <ImageView
+                android:id="@+id/iconLock"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/til_RContraseña"
+                app:layout_constraintHorizontal_bias="0.645"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/til_RContraseña"
+                app:layout_constraintVertical_bias="0.04000002"
+                app:srcCompat="@drawable/lock" />
+
+            <ImageView
+                android:id="@+id/iconCalendar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/til_FdNacimiento"
+                app:layout_constraintHorizontal_bias="0.69"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/til_FdNacimiento"
+                app:layout_constraintVertical_bias="0.04000002"
+                app:srcCompat="@drawable/calendar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#FFC107"
+        android:backgroundTint="#6b5ecd"
         android:fontFamily="@font/convergence"
         android:text="@string/login_btnRegister"
+        android:textColor="#ded9f4"
         android:textStyle="bold"
-        app:cornerRadius="30dp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chkTerminos"
-        app:layout_constraintVertical_bias="0.0"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.183"
+        app:strokeColor="@color/black" />
 
-    <ImageView
-        android:id="@+id/iconEmail"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/til_correo"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/til_correo"
-        app:layout_constraintVertical_bias="0.00999999"
-        app:srcCompat="@drawable/email" />
-
-    <ImageView
-        android:id="@+id/iconUnlock"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/til_contraseña"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/til_contraseña"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/password" />
-
-    <ImageView
-        android:id="@+id/iconLock"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/til_RContraseña"
-        app:layout_constraintHorizontal_bias="0.645"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/til_RContraseña"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/lock" />
-
-    <ImageView
-        android:id="@+id/iconCalendar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/til_FdNacimiento"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/til_FdNacimiento"
-        app:layout_constraintVertical_bias="0.01999998"
-        app:srcCompat="@drawable/calendar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

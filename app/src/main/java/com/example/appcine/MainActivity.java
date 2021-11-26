@@ -1,6 +1,7 @@
 package com.example.appcine;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -22,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Edge to edge screen
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         //Referencias a widgets
         tabLayout = findViewById(R.id.tab_layout);
@@ -68,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        tabLayout.setTranslationY(300);
+        tabLayout.setAlpha(0);
+        tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(800).start();
 
     }
 
