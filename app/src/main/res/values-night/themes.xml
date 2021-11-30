@@ -13,14 +13,13 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowActionBarOverlay">false</item>
         <item name="windowActionBarOverlay">false</item>
-        <!--<item name="android:statusBarColor" tools:targetApi="l">#00000000</item>-->
-        <!-- Customize your theme here. -->
-        <!--<item name="android:windowBackground">@drawable/fondovioleta</item>-->
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="Theme.AppCine.NoStatusBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
 

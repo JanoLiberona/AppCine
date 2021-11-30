@@ -1,11 +1,11 @@
-package com.example.appcine;
+package com.example.appcine.Views;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.appcine.R;
 
 public class MovieItem extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class MovieItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_item);
 
-        like = findViewById(R.id.lfLike);
+        /*like = findViewById(R.id.lfLike);
 
         like.setOnClickListener(new View.OnClickListener() {
             boolean isAnimated = false;
@@ -31,6 +31,6 @@ public class MovieItem extends AppCompatActivity {
                     like.playAnimation();
                 }
             }
-        });
+        });*/
     }
 }

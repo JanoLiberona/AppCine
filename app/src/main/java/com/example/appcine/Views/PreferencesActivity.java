@@ -1,4 +1,4 @@
-package com.example.appcine;
+package com.example.appcine.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.appcine.R;
 
 public class PreferencesActivity extends AppCompatActivity {
 
@@ -44,7 +46,6 @@ public class PreferencesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
     }

@@ -1,11 +1,13 @@
-package com.example.appcine;
+package com.example.appcine.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+
+import com.example.appcine.R;
+
 import java.util.Timer;
 import java.util.TimerTask;
 

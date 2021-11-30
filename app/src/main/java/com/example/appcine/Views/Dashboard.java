@@ -1,24 +1,23 @@
-package com.example.appcine;
+package com.example.appcine.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.Spinner;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
+import com.example.appcine.Adapters.MovieAdapter;
+import com.example.appcine.Models.MovieModelClass;
+import com.example.appcine.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,17 +31,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class Dashboard extends AppCompatActivity {
 
-
-    //TMDB API JSON link filtrado por populares: https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5
-    private static String JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5";
+    //TMDB API JSON link filtrado por populares: https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES
+    private String JSON_URL = "";
 
     List<MovieModelClass> movieList;
     RecyclerView recyclerView;
     ImageView header;
+    Spinner spinner;
+    List<String> listCategorias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +51,57 @@ public class Dashboard extends AppCompatActivity {
         //Edge to edge screen
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
+        setTitle("Dashboard");
         movieList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerview);
         header = findViewById(R.id.header);
+        spinner = findViewById(R.id.spinner);
 
         Glide.with(this).load(R.drawable.spider).into(header);
 
+        //Spinner
+        listCategorias = new ArrayList<String>();
+        listCategorias.add("Popular");
+        listCategorias.add("Más votados");
+        listCategorias.add("Próximos");
+        listCategorias.add("Para mí");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.my_selected_item, listCategorias);
+        arrayAdapter.setDropDownViewResource(R.layout.my_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                GetData getData = new GetData();
+                switch (position) {
+                    case 0:
+                        JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES";
+                        getData.execute();
+                        break;
+                    case 1:
+                        JSON_URL = "https://api.themoviedb.org/3/movie/top_rated?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES";
+                        getData.execute();
+                        break;
+                    case 2:
+                        JSON_URL = "https://api.themoviedb.org/3/movie/upcoming?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES";
+                        getData.execute();
+                        break;
+                    case 3:
+                        JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES";
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         //Tarea Asíncrona
-        GetData getData = new GetData();
-        getData.execute();
+        //GetData getData = new GetData();
+        //getData.execute();
 
         //No permite volver atrás
         onBackPressed();
@@ -71,7 +112,6 @@ public class Dashboard extends AppCompatActivity {
     public void onBackPressed(){
 
     }
-
 
     //Clase para el manejo asíncrono de la API
     public class GetData extends AsyncTask<String, String, String> {
@@ -84,6 +124,7 @@ public class Dashboard extends AppCompatActivity {
                 URL url;
                 HttpURLConnection urlConnection = null;
                 try {
+                    System.out.println(JSON_URL);
                     url = new URL(JSON_URL);
                     urlConnection = (HttpURLConnection) url.openConnection();
 
@@ -113,20 +154,25 @@ public class Dashboard extends AppCompatActivity {
             return current;
         }
 
+
+        //Manejo de los datos del JSON de la API
         @Override
         protected void onPostExecute(String s) {
             try {
                 JSONObject jsonObject = new JSONObject(s);
                 //La Api nos devuelve un un objeto que contiene un arreglo llamado "results"
                 JSONArray jsonArray = jsonObject.getJSONArray("results");
+                //Eliminamos el array para que cada vez que seleccionamos un nuevo elemento en el spinner se vuelva a cargar la lista con el método add
+                movieList.clear();
+                //Dentro del array recorremos los objetos que hayan
                 for(int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
                     MovieModelClass model = new MovieModelClass();
                     model.setId(jsonObject1.getString("id"));
                     model.setName(jsonObject1.getString("title"));
                     model.setImg(jsonObject1.getString("poster_path"));
-
+                    model.setRdate(jsonObject1.getString("release_date"));
+                    model.setOverview(jsonObject1.getString("overview"));
                     movieList.add(model);
                 }
             } catch (JSONException e) {
@@ -147,10 +193,14 @@ public class Dashboard extends AppCompatActivity {
                 String title = movieList.get(position).getName();
                 String id = movieList.get(position).getId();
                 String img = movieList.get(position).getImg();
+                String rdate = movieList.get(position).getRdate();
+                String overview = movieList.get(position).getOverview();
                 Intent intent = new Intent(Dashboard.this, MovieDetailItem.class);
                 intent.putExtra("title", title);
                 intent.putExtra("id", id);
                 intent.putExtra("poster_path", img);
+                intent.putExtra("release_date", rdate);
+                intent.putExtra("overview", overview);
                 startActivity(intent);
             }
         });

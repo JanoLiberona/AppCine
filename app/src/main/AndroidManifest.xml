@@ -12,20 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCine">
         <activity
-            android:name=".MovieDetailItem"
+            android:name=".Views.MovieDetailItem"
             android:exported="false" />
         <activity
-            android:name=".Dashboard"
+            android:name=".Views.Dashboard"
             android:theme="@style/Theme.AppCine.NoStatusBar"
             android:exported="false" />
         <activity
-            android:name=".PreferencesActivity"
+            android:name=".Views.PreferencesActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Views.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Views.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.appcine;
+package com.example.appcine.Helpers;
 
 import android.util.Patterns;
 
@@ -24,7 +24,7 @@ public class Validate {
 
     //Validación posible nulo
     public boolean checkNull(String text) {
-        if (text.equals("") || text.length() == 0 || text.trim().equals("")){
+        if (text.equals("")){
             return false;
         } else {
             return true;

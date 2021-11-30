@@ -15,10 +15,9 @@
         <!-- Customize your theme here. -->
         <!--<item name="android:windowBackground">@drawable/fondovioleta</item>-->
     </style>
-    <style name="Theme.AppCine.NoActionBar">
+    <style name="Theme.AppCine.NoStatusBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
-    <style name="Theme.AppCine.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Theme.AppCine.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -1,23 +1,20 @@
-package com.example.appcine;
+package com.example.appcine.Adapters;
 
 import android.content.Context;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
+import com.example.appcine.Models.MovieModelClass;
+import com.example.appcine.R;
 
 import java.util.List;
 
@@ -52,8 +49,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.id.setText(mData.get(position).getId());
+        //holder.id.setText(mData.get(position).getId());
         holder.name.setText(mData.get(position).getName());
+        holder.rdate.setText(mData.get(position).getRdate());
 
         //Usando Glide para mostrar la imagen:
         //Documentación de Glide ---> https://bumptech.github.io/glide/doc/download-setup.html
@@ -71,15 +69,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView id, name;
+        TextView id, name, rdate;
         ImageView img;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            id = itemView.findViewById(R.id.id_txt);
+            //id = itemView.findViewById(R.id.id_txt);
             name = itemView.findViewById(R.id.name_txt);
             img = itemView.findViewById(R.id.imageView);
+            rdate = itemView.findViewById(R.id.rdate);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,7 +89,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                         if(position != RecyclerView.NO_POSITION){
                             listener.onItemClick(itemView,position);
                         }
-
                     }
                 }
             });

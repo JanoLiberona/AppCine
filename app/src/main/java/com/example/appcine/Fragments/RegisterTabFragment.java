@@ -1,4 +1,4 @@
-package com.example.appcine;
+package com.example.appcine.Fragments;
 
 import androidx.fragment.app.Fragment;
 
@@ -13,9 +13,16 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import com.example.appcine.Database.AppDatabase;
+import com.example.appcine.Database.Entities.UserEntity;
+import com.example.appcine.Models.User;
+import com.example.appcine.Views.PreferencesActivity;
+import com.example.appcine.R;
+import com.example.appcine.Helpers.Validate;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class RegisterTabFragment extends Fragment {
 
@@ -71,11 +78,18 @@ public class RegisterTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Validate validate = new Validate();
-                mail = til_correo.getEditText().getText().toString();
-                pass = til_contrasena.getEditText().getText().toString();
-                repass = til_RContrasena.getEditText().getText().toString();
-                bday = til_bday.getEditText().getText().toString();
+                String mail = til_correo.getEditText().getText().toString();
+                String pass = til_contrasena.getEditText().getText().toString();
+                String repass = til_RContrasena.getEditText().getText().toString();
+                String bday = til_bday.getEditText().getText().toString();
                 if (validarDatos() == 0) {
+                    AppDatabase database = AppDatabase.getInstance(getActivity());
+                    UserEntity userEntity = new UserEntity(mail, pass, bday);
+                    database.usersDAO().insert(userEntity);
+                    List<UserEntity> users = database.usersDAO().getAll();
+                    for (int i = 0; i < users.size(); i++) {
+                        System.out.println(users.get(i).toString());
+                    }
                     if (chkAccept.isChecked()) {
                         Toast.makeText(getActivity().getApplicationContext(), "mail: " + mail + ", Password: " + pass + ", RepPassword: " + repass + ", Bday: " + bday, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(view.getContext(), PreferencesActivity.class);
@@ -91,54 +105,62 @@ public class RegisterTabFragment extends Fragment {
 
     public int validarDatos() {
         Validate validate = new Validate();
+        String mail = til_correo.getEditText().getText().toString();
+        String pass = til_contrasena.getEditText().getText().toString();
+        String rpass = til_RContrasena.getEditText().getText().toString();
+        String bday = til_bday.getEditText().getText().toString();
+
         int count = 0;
 
-        if (!validate.checkNull(mail)) {
-            til_correo.setError(getString(R.string.campo_nulo));
-            count ++;
-        } else {
-            til_correo.setError(null);
-
+        //Evitar mail nulo
+        if (validate.checkNull(mail)){
+            //Validación formato mail
             if (validate.checkMail(mail)) {
                 til_correo.setError(null);
             } else {
                 til_correo.setError(getString(R.string.error_login_correoFormat));
                 count++;
             }
+        } else {
+            til_correo.setError(getString(R.string.campo_nulo));
+            count++;
         }
 
-        if (!validate.checkNull(pass)) {
+        //Evitar pass null
+        if (validate.checkNull(pass)){
             til_contrasena.setError(null);
+        } else {
             til_contrasena.setError(getString(R.string.campo_nulo));
             count++;
-        } else {
-            til_contrasena.setError(null);
         }
 
-        if (!validate.checkNull(repass)) {
+        //Evitar rpass null
+        if (validate.checkNull(rpass)){
             til_RContrasena.setError(null);
+        } else {
             til_RContrasena.setError(getString(R.string.campo_nulo));
             count++;
-        } else {
-            til_RContrasena.setError(null);
         }
 
-        if (repass.equals(pass) && validate.checkNull(repass) && validate.checkNull(pass)) {
+        //Comprobación contraseñas iguales
+        if (rpass.equals(pass) && validate.checkNull(rpass) && validate.checkNull(pass)){
             til_RContrasena.setError(null);
             til_contrasena.setError(null);
-        } else if (validate.checkNull(repass) && validate.checkNull(pass)) {
+        } else if (validate.checkNull(rpass) && validate.checkNull(pass)){
             til_RContrasena.setError(getString(R.string.no_coinciden_pass));
             til_contrasena.setError(getString(R.string.no_coinciden_pass));
             count++;
         }
 
-        if (validate.checkNull(bday)) {
+        //Evitar cumpleaños nulo
+        if(validate.checkNull(bday)){
             til_bday.setError(null);
         } else {
-            til_bday.setError(getString(R.string.ingresar_fecha));
+            til_bday.setError(getString(R.string.campo_nulo));
             count++;
         }
+
+
         return count;
     }
-
 }

@@ -10,15 +10,19 @@
         <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_preferences.xml" value="0.5" />
         <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_splash.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/arrow_down.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/drawable/btn_shape.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/drawable/edit_text_shape.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/drawable/view_background.xml" value="0.46927083333333336" />
         <entry key="app/src/main/res/drawable/view_dadr_background.xml" value="0.45925925925925926" />
         <entry key="app/src/main/res/drawable/view_dark_background.xml" value="0.45925925925925926" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.375" />
+        <entry key="app/src/main/res/drawable/view_image_title_movie_item.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/drawable/view_spinner.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/drawable/view_user_avatar_rounded.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_login_tab_fragment.xml" value="0.453125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_movie_detail_item.xml" value="0.40443840579710144" />
+        <entry key="app/src/main/res/layout/activity_movie_detail_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_preferences.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_register_tab_fragment.xml" value="0.453125" />
@@ -27,7 +31,10 @@
         <entry key="app/src/main/res/layout/fragment_preferences.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/header.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/login_tab_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/message_item.xml" value="0.39719202898550726" />
         <entry key="app/src/main/res/layout/movie_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/my_dropdown_item.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/my_selected_item.xml" value="0.37083333333333335" />
         <entry key="app/src/main/res/layout/preferences_fragment.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/register_tab_fragment.xml" value="0.45" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.32447916666666665" />

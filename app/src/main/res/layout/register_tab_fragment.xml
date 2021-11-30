@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1f1d2c"
-    tools:context=".RegisterTabFragment">
+    tools:context=".Fragments.RegisterTabFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

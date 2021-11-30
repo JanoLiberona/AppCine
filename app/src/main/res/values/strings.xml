@@ -10,26 +10,19 @@
 
 
     <!-- TEXTOS DE DASHBOARD -->
-    <string name="dash_welcome">Bienvenid@a tu dashboard</string>
-    <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus comentarios. ¡Disfruta tu estadía!</string>
 
 
     <!-- TEXTOS DE REGISTRO -->
     <string name="reg_title">Registrarse</string>
-    <string name="reg_mail">Correo</string>
     <string name="reg_tilMail">ejemplo@correo.cl</string>
-    <string name="reg_pass">Contraseña</string>
     <string name="reg_tilPass">Ingrese contraseña</string>
-    <string name="reg_rpass">Repetir contraseña</string>
     <string name="reg_tilRpass">Repetir su contraseña</string>
-    <string name="reg_bdate">Fecha de nacimiento</string>
     <string name="reg_tilBdate">Fecha de nacimiento</string>
     <string name="reg_chkCondiciones">Acepto las condiciones</string>
-    <string name="reg_btnRegister">Registrarme</string>
 
 
     <!-- ERRORES -->
-    <string name="campo_nulo">El campo debe ser distinto de nulo</string>
+    <string name="campo_nulo">El campo no debe estar vacío</string>
     <string name="error_login_correoFormat">El formato de correo debe ser mail@dom.cl</string>
     <string name="no_coinciden_pass">Las contraseñas no coinciden</string>
     <string name="ingresar_fecha">Debe ingresar fecha de nacimiento</string>
@@ -61,24 +54,16 @@
     <string name="chkFantasy">Fantasía</string>
     <string name="chkSports">Deportes</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <!-- Dashboard -->
-    <string name="dashTitle">Lo nuevo</string>
     <!-- Textos menú lateral principal-->
-    <string name="home">Dashboard</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_dashboard">Dashboard</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Spinner -->
+    <!--Movie item -->
+    <string name="release_date">Estreno:</string>
+    <string name="date">2020-12-12</string>
 
 
 </resources>
