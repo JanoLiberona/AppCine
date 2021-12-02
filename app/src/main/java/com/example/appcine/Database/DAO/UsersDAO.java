@@ -15,6 +15,7 @@ public interface UsersDAO {
     @Insert
     void insert(UserEntity userEntity);
 
+    //@Query("SELECT * FROM users WHERE password = :password AND mail = :mail")
     @Query("SELECT * FROM users WHERE password = :password AND mail = :mail")
     List<UserEntity> login(String password, String mail);
 

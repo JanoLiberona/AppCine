@@ -19,6 +19,8 @@
         <entry key="app/src/main/res/drawable/view_image_title_movie_item.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/drawable/view_spinner.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/drawable/view_user_avatar_rounded.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/font/autour_one.xml" value="0.4758974358974359" />
+        <entry key="app/src/main/res/font/convergence.xml" value="0.4758974358974359" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_login_tab_fragment.xml" value="0.453125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />

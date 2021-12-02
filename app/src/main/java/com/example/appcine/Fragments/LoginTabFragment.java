@@ -78,7 +78,7 @@ public class LoginTabFragment extends Fragment {
                 String pass = tilPass.getEditText().getText().toString();
                 if (validarDatos() == 0) {
                     AppDatabase database = AppDatabase.getInstance(getActivity());
-                    System.out.println("Database: "+ database.usersDAO().login(pass, mail).size() );
+                    System.out.println("Database: "+ database.usersDAO().getAll().size() );
                     if (database.usersDAO().login(pass, mail).size() == 1) {
                         System.out.println("por aquí");
                         Long idUser = database.usersDAO().login(pass, mail).get(0).getId();
@@ -88,11 +88,12 @@ public class LoginTabFragment extends Fragment {
                         sharedEditor.putString("passUser", pass);
                         sharedEditor.commit();
                         sharedEditor.apply();
+                        Intent intent = new Intent(view.getContext(), Dashboard.class);
+                        intent.putExtra("mail", mail);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
                     }
-                    Intent intent = new Intent(view.getContext(), Dashboard.class);
-                    intent.putExtra("mail", mail);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+
                 } else {
                     tilUser.setError("Correo o contraseña son inválidos");
                     tilPass.setError("Correo o contraseña son inválidos");

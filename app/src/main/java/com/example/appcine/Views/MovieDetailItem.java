@@ -21,7 +21,6 @@ public class MovieDetailItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail_item);
 
-        setTitle("MovieDetailItem");
         //Edge to edge screen
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
@@ -32,6 +31,7 @@ public class MovieDetailItem extends AppCompatActivity {
         ImageView titleImage = findViewById(R.id.titleImage);
         LottieAnimationView like = findViewById(R.id.lfLike);
 
+        //Animación botón like
         like.setOnClickListener(new View.OnClickListener() {
             boolean isAnimated = false;
             @Override
@@ -48,7 +48,7 @@ public class MovieDetailItem extends AppCompatActivity {
             }
         });
 
-
+        //Obtención de los datos de la actividad anterior
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
         //String id = intent.getStringExtra("id");

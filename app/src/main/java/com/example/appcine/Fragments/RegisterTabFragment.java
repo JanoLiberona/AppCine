@@ -84,7 +84,7 @@ public class RegisterTabFragment extends Fragment {
                 String bday = til_bday.getEditText().getText().toString();
                 if (validarDatos() == 0) {
                     AppDatabase database = AppDatabase.getInstance(getActivity());
-                    UserEntity userEntity = new UserEntity(mail, pass, bday);
+                    UserEntity userEntity = new UserEntity(mail, bday, pass);
                     database.usersDAO().insert(userEntity);
                     List<UserEntity> users = database.usersDAO().getAll();
                     for (int i = 0; i < users.size(); i++) {

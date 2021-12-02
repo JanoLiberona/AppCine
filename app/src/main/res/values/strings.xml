@@ -65,5 +65,9 @@
     <string name="release_date">Estreno:</string>
     <string name="date">2020-12-12</string>
 
+    <!-- Textos mensaje usuario -->
+    <string name="opinionUserName">Nombre del usuario</string>
+    <string name="opinionUserMessage">Aquí</string>
+
 
 </resources>
