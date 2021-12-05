@@ -44,7 +44,6 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/convergence"
                 android:text="Iniciar sesión"
                 android:textColor="#c4c7ca"
                 android:textSize="30dp"
@@ -60,24 +59,61 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/til_user"
-                app:layout_constraintHorizontal_bias="0.683"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/til_user"
-                app:layout_constraintVertical_bias="0.04000002"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.155"
                 app:srcCompat="@drawable/email" />
+
+            <EditText
+                android:id="@+id/etLoginUserEmail"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_message"
+                android:hint="@string/reg_tilMail"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:textColor="#b7bac4"
+                android:textColorHint="#707281"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iconEmail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toEndOf="@+id/iconEmail"
+                app:layout_constraintTop_toTopOf="@+id/iconEmail"
+                app:layout_constraintVertical_bias="0.5" />
 
             <ImageView
                 android:id="@+id/iconPass"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/til_pass"
+                app:layout_constraintEnd_toEndOf="@+id/iconEmail"
                 app:layout_constraintHorizontal_bias="0.683"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/til_pass"
+                app:layout_constraintStart_toStartOf="@+id/iconEmail"
+                app:layout_constraintTop_toBottomOf="@+id/iconEmail"
                 app:layout_constraintVertical_bias="0.00999999"
                 app:srcCompat="@drawable/lock" />
+
+            <EditText
+                android:id="@+id/etLoginUserPassword"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_message"
+                android:hint="@string/reg_tilMail"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:textColor="#b7bac4"
+                android:textColorHint="#707281"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iconPass"
+                app:layout_constraintEnd_toEndOf="@+id/etLoginUserEmail"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/iconPass"
+                app:layout_constraintTop_toTopOf="@+id/iconPass"
+                app:layout_constraintVertical_bias="0.5" />
 
             <TextView
                 android:id="@+id/tv_forgetPass"
@@ -90,62 +126,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.926"
                 app:layout_constraintStart_toStartOf="parent"
-
-                app:layout_constraintTop_toBottomOf="@+id/til_pass"
+                app:layout_constraintTop_toBottomOf="@+id/etLoginUserPassword"
                 app:layout_constraintVertical_bias="0.47" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_user"
-                android:layout_width="262dp"
-                android:layout_height="53dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:expandedHintEnabled="false"
-                app:hintAnimationEnabled="false"
-                app:hintEnabled="false"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.76"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:layout_constraintVertical_bias="0.18">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_shape"
-                    android:hint="@string/login_mail"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#f8fbfc"
-                    android:textColorHint="#707281" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_pass"
-                android:layout_width="262dp"
-                android:layout_height="51dp"
-                app:boxStrokeWidth="0dp"
-                app:boxStrokeWidthFocused="0dp"
-                app:expandedHintEnabled="false"
-                app:hintAnimationEnabled="false"
-                app:hintEnabled="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.76"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_user"
-                app:layout_constraintVertical_bias="0.13">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_shape"
-                    android:hint="@string/login_pass"
-                    android:inputType="textPassword"
-                    android:textColor="#f8fbfc"
-                    android:textColorHint="#707281" />
-            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

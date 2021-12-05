@@ -108,7 +108,6 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, UserConfigsActivity.class);
                 startActivity(intent);
-                Toast.makeText(Dashboard.this, "Hola", Toast.LENGTH_SHORT).show();
             }
         });
 

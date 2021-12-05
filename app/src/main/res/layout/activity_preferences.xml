@@ -13,7 +13,6 @@
         android:id="@+id/txtPreferencias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/convergence"
         android:shadowColor="#000000"
         android:shadowDx="2"
         android:shadowDy="5"
@@ -29,14 +28,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.056" />
 
-
-
     <TextView
         android:id="@+id/txtSaludo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/convergence"
         android:shadowColor="#000000"
         android:shadowDx="2"
         android:shadowDy="5"
@@ -55,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/convergence"
         android:shadowColor="#000000"
         android:shadowDx="2"
         android:shadowDy="5"
@@ -87,7 +82,6 @@
             android:id="@+id/btnRegPreferences"
             android:layout_width="130dp"
             android:layout_height="60dp"
-            android:fontFamily="@font/convergence"
             android:text="@string/pref_btnRegistrar"
             android:textColor="#ded9f4"
             android:textStyle="bold"
@@ -98,15 +92,12 @@
             app:layout_constraintHorizontal_bias="0.281"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.83"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
+            app:layout_constraintVertical_bias="0.83" />
 
         <TextView
             android:id="@+id/txtSkip"
             android:layout_width="94dp"
             android:layout_height="18dp"
-            android:fontFamily="@font/convergence"
             android:shadowColor="#000000"
             android:shadowDx="2"
             android:shadowDy="5"
@@ -179,7 +170,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkComedy"
                                 android:textSize="15sp" />
@@ -220,7 +210,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkHistory"
                                 android:textSize="15sp" />
@@ -258,7 +247,6 @@
                                 android:layout_marginStart="48dp"
                                 android:layout_marginTop="4dp"
                                 android:layout_marginEnd="48dp"
-                                android:fontFamily="@font/convergence"
                                 app:srcCompat="@drawable/scifi" />
 
                             <CheckBox
@@ -269,7 +257,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkSciFi"
                                 android:textSize="15sp" />
@@ -310,7 +297,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkRomance"
                                 android:textSize="15sp" />
@@ -357,10 +343,9 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
-                                android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkThriller"
+                                android:textColor="#717383"
                                 android:textSize="15sp" />
 
                         </RelativeLayout>
@@ -399,7 +384,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkMystery"
                                 android:textSize="15sp" />
@@ -447,7 +431,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkDrama"
                                 android:textSize="15sp" />
@@ -488,7 +471,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkHorror"
                                 android:textSize="15sp" />
@@ -536,7 +518,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkAction"
                                 android:textSize="15sp" />
@@ -577,7 +558,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkWar"
                                 android:textSize="15sp" />
@@ -625,7 +605,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkMusical"
                                 android:textSize="15sp" />
@@ -666,7 +645,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkSuperhero"
                                 android:textSize="15sp" />
@@ -714,7 +692,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkAnimation"
                                 android:textSize="15sp" />
@@ -755,7 +732,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkRoadmovie"
                                 android:textSize="15sp" />
@@ -803,7 +779,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkFantasy"
                                 android:textSize="15sp" />
@@ -844,7 +819,6 @@
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:textColor="#717383"
-                                android:fontFamily="@font/convergence"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkSports"
                                 android:textSize="15sp" />

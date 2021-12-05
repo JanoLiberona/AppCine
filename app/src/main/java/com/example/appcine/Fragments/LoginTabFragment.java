@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ import com.google.android.material.textfield.TextInputLayout;
 public class LoginTabFragment extends Fragment {
 
     //Inicialización variables
-    TextInputLayout tilUser, tilPass;
+    EditText tilUser, tilPass;
     TextView tvTitle, forgetPass;
     Button btnLogin;
     ImageView iconEmail, iconPass;
@@ -42,8 +43,8 @@ public class LoginTabFragment extends Fragment {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.login_tab_fragment, container,false);
 
         //referencias widgets
-        tilUser = root.findViewById(R.id.til_user);
-        tilPass = root.findViewById(R.id.til_pass);
+        tilUser = root.findViewById(R.id.etLoginUserEmail);
+        tilPass = root.findViewById(R.id.etLoginUserPassword);
         tvTitle = root.findViewById(R.id.textView);
         forgetPass = root.findViewById(R.id.tv_forgetPass);
         btnLogin = root.findViewById(R.id.btn_login);
@@ -67,16 +68,16 @@ public class LoginTabFragment extends Fragment {
         String existMailUser = sharedPreferences.getString("mailUser","");
         String existpassUser = sharedPreferences.getString("passUser","");
         if(!existMailUser.equals("") && !existpassUser.equals("")){
-            tilUser.getEditText().setText(existMailUser);
-            tilPass.getEditText().setText(existpassUser);
+            tilUser.setText(existMailUser);
+            tilPass.setText(existpassUser);
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Validate validate = new Validate();
-                String mail = tilUser.getEditText().getText().toString();
-                String pass = tilPass.getEditText().getText().toString();
+                String mail = tilUser.getText().toString();
+                String pass = tilPass.getText().toString();
                 if (validarDatos() == 0) {
                     AppDatabase database = AppDatabase.getInstance(getActivity());
                     System.out.println("Database: "+ database.usersDAO().getAll().size() );
@@ -107,8 +108,8 @@ public class LoginTabFragment extends Fragment {
     public int validarDatos() {
         Validate validate = new Validate();
         int count = 0;
-        String mail = tilUser.getEditText().getText().toString();
-        String pass = tilPass.getEditText().getText().toString();
+        String mail = tilUser.getText().toString();
+        String pass = tilPass.getText().toString();
 
         if (validate.checkNull(mail)) {
             if (validate.checkMail(mail)) {

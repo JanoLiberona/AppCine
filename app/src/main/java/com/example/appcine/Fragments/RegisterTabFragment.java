@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.appcine.Database.AppDatabase;
@@ -27,28 +28,29 @@ import java.util.List;
 public class RegisterTabFragment extends Fragment {
 
     private Button btnRegister;
-    private TextInputLayout til_correo, til_contrasena, til_RContrasena, til_bday;
+    private EditText til_user, til_correo, til_contrasena, til_RContrasena, til_bday;
     private CheckBox chkAccept;
-    String mail, pass, repass, bday;
+    String userName, mail, pass, repass, bday;
     int mDay, mMonth, mYear;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.register_tab_fragment, container, false);
 
-        til_correo = root.findViewById(R.id.til_correo);
-        til_contrasena = root.findViewById(R.id.til_contraseña);
-        til_RContrasena = root.findViewById(R.id.til_RContraseña);
-        til_bday = root.findViewById(R.id.til_FdNacimiento);
+        til_user = root.findViewById(R.id.etUserName);
+        til_correo = root.findViewById(R.id.etUserEmail);
+        til_contrasena = root.findViewById(R.id.etUserPass);
+        til_RContrasena = root.findViewById(R.id.etUserRePass);
+        til_bday = root.findViewById(R.id.etUserBday);
         chkAccept = root.findViewById(R.id.chkTerminos);
         btnRegister = root.findViewById(R.id.btnRegistrar);
 
-
+        //Calendar bday
         final Calendar calendar = Calendar.getInstance();
         mDay = calendar.get(Calendar.DAY_OF_MONTH);
         mMonth = calendar.get(Calendar.MONTH);
         mYear = calendar.get(Calendar.YEAR);
 
-        til_bday.getEditText().setOnClickListener(new View.OnClickListener() {
+        til_bday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
@@ -56,16 +58,16 @@ public class RegisterTabFragment extends Fragment {
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         if (month + 1 >= 10) {
                             if (day + 1 > 10) {
-                                til_bday.getEditText().setText(day+"/"+(month+1)+"/"+year);
+                                til_bday.setText(day+"/"+(month+1)+"/"+year);
                             } else {
-                                til_bday.getEditText().setText("0"+day+"/"+(month + 1)+"/"+year);
+                                til_bday.setText("0"+day+"/"+(month + 1)+"/"+year);
                             }
                         } else {
                             if(day+1>10){
-                                til_bday.getEditText().setText(day+"/0"+(month+1)+"/"+year);
+                                til_bday.setText(day+"/0"+(month+1)+"/"+year);
                             }
                             else{
-                                til_bday.getEditText().setText("0"+day+"/0"+(month+1)+"/"+year);
+                                til_bday.setText("0"+day+"/0"+(month+1)+"/"+year);
                             }
                         }
                     }
@@ -78,10 +80,10 @@ public class RegisterTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Validate validate = new Validate();
-                String mail = til_correo.getEditText().getText().toString();
-                String pass = til_contrasena.getEditText().getText().toString();
-                String repass = til_RContrasena.getEditText().getText().toString();
-                String bday = til_bday.getEditText().getText().toString();
+                String mail = til_correo.getText().toString();
+                String pass = til_contrasena.getText().toString();
+                String repass = til_RContrasena.getText().toString();
+                String bday = til_bday.getText().toString();
                 if (validarDatos() == 0) {
                     AppDatabase database = AppDatabase.getInstance(getActivity());
                     UserEntity userEntity = new UserEntity(mail, bday, pass);
@@ -104,12 +106,20 @@ public class RegisterTabFragment extends Fragment {
 
     public int validarDatos() {
         Validate validate = new Validate();
-        String mail = til_correo.getEditText().getText().toString();
-        String pass = til_contrasena.getEditText().getText().toString();
-        String rpass = til_RContrasena.getEditText().getText().toString();
-        String bday = til_bday.getEditText().getText().toString();
+        String userName = til_user.getText().toString();
+        String mail = til_correo.getText().toString();
+        String pass = til_contrasena.getText().toString();
+        String rpass = til_RContrasena.getText().toString();
+        String bday = til_bday.getText().toString();
 
         int count = 0;
+
+        //Evitar userName null
+        if (validate.checkNull(userName)) {
+            til_user.setError(null);
+        } else {
+            til_user.setError(getString(R.string.campo_nulo));
+        }
 
         //Evitar mail nulo
         if (validate.checkNull(mail)){
