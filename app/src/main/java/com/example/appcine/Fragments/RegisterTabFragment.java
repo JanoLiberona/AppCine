@@ -20,6 +20,7 @@ import com.example.appcine.Models.User;
 import com.example.appcine.Views.PreferencesActivity;
 import com.example.appcine.R;
 import com.example.appcine.Helpers.Validate;
+import com.example.appcine.Views.UserConfigsActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
@@ -79,15 +80,14 @@ public class RegisterTabFragment extends Fragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Validate validate = new Validate();
                 String user = til_user.getText().toString();
                 String mail = til_correo.getText().toString();
                 String pass = til_contrasena.getText().toString();
-                String repass = til_RContrasena.getText().toString();
                 String bday = til_bday.getText().toString();
                 if (validarDatos() == 0) {
                     AppDatabase database = AppDatabase.getInstance(getActivity());
-                    UserEntity userEntity = new UserEntity(mail, bday, pass);
+                    UserEntity userEntity = new UserEntity(user, mail, bday, pass);
+                    System.out.println(userEntity);
                     database.usersDAO().insert(userEntity);
                     List<UserEntity> users = database.usersDAO().getAll();
                     for (int i = 0; i < users.size(); i++) {
@@ -96,6 +96,10 @@ public class RegisterTabFragment extends Fragment {
                     if (chkAccept.isChecked()) {
                         Intent intent = new Intent(view.getContext(), PreferencesActivity.class);
                         intent.putExtra("user", user);
+                        intent.putExtra("user", user);
+                        intent.putExtra("mail", mail);
+                        intent.putExtra("bday", bday);
+                        intent.putExtra("pass", pass);
                         startActivity(intent);
                     }
                 }

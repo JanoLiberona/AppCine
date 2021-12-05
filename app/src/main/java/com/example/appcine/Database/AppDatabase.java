@@ -5,15 +5,18 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.appcine.Database.DAO.CommentDAO;
 import com.example.appcine.Database.DAO.UsersDAO;
+import com.example.appcine.Database.Entities.CommentEntity;
 import com.example.appcine.Database.Entities.UserEntity;
 
-@Database(entities = {UserEntity.class}, version = 1)
+@Database(entities = {UserEntity.class, CommentEntity.class}, version = 1)
 public abstract  class AppDatabase extends RoomDatabase {
 
     public static AppDatabase INSTANCE;
 
     public abstract UsersDAO usersDAO();
+    public abstract CommentDAO commentDAO();
 
     public static AppDatabase getInstance(FragmentActivity context){
 

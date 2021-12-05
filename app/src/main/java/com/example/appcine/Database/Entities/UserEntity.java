@@ -14,6 +14,10 @@ public class UserEntity {
     Long id;
 
     @NonNull
+    @ColumnInfo(name = "name")
+    String name;
+
+    @NonNull
     @ColumnInfo(name = "mail")
     String mail;
 
@@ -25,10 +29,20 @@ public class UserEntity {
     @ColumnInfo(name = "bday")
     String bday;
 
-    public UserEntity(@NonNull String mail, @NonNull String bday, @NonNull String password) {
+    public UserEntity(@NonNull String name ,@NonNull String mail, @NonNull String bday, @NonNull String password) {
+        this.name = name;
         this.mail = mail;
         this.bday = bday;
         this.password = password;
+    }
+
+    @NonNull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@NonNull String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -70,6 +84,7 @@ public class UserEntity {
     public String toString() {
         return "UserEntity{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", mail='" + mail + '\'' +
                 ", bday='" + bday + '\'' +
                 ", password='" + password + '\'' +

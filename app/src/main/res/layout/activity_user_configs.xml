@@ -78,7 +78,7 @@
                         app:layout_constraintVertical_bias="0.1" />
 
                     <EditText
-                        android:id="@+id/etUserName"
+                        android:id="@+id/etUserConfigName"
                         android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_message"
@@ -109,7 +109,7 @@
                         app:layout_constraintVertical_bias="0.02" />
 
                     <EditText
-                        android:id="@+id/itUserConfigEmail"
+                        android:id="@+id/etUserConfigEmail"
                         android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_message"

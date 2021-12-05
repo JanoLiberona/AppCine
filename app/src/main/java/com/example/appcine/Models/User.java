@@ -1,10 +1,12 @@
 package com.example.appcine.Models;
 
 public class User {
+    private String name;
     private String mail;
     private String pass;
 
-    public User(String mail, String pass) {
+    public User(String name, String mail, String pass) {
+        this.name = name;
         this.mail = mail;
         this.pass = pass;
     }
@@ -15,6 +17,14 @@ public class User {
                 "mail='" + mail + '\'' +
                 ", pass=" + pass +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMail() {
