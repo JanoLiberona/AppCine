@@ -80,11 +80,8 @@ public class LoginTabFragment extends Fragment {
                 String pass = tilPass.getText().toString();
                 if (validarDatos() == 0) {
                     AppDatabase database = AppDatabase.getInstance(getActivity());
-                    System.out.println("Database: "+ database.usersDAO().getAll().size() );
                     if (database.usersDAO().login(pass, mail).size() == 1) {
-                        System.out.println("por aquí");
                         Long idUser = database.usersDAO().login(pass, mail).get(0).getId();
-                        System.out.println("idUser"+idUser.toString());
                         sharedEditor.putString("idUser", idUser.toString());
                         sharedEditor.putString("mailUser", mail);
                         sharedEditor.putString("passUser", pass);

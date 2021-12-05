@@ -30,7 +30,7 @@
 
     <!-- TEXTOS DE PREFERENCIAS -->
     <string name="pref_title">Preferencias</string>
-    <string name="pref_saludoUsuario">Hola Usuario!</string>
+    <string name="pref_saludoUsuario">Hola </string>
     <string name="pref_seleccioneGeneros">Selecciona tus géneros favoritos</string>
     <string name="pref_btnRegistrar">Finalizar</string>
     <string name="pref_skip">Omitir paso</string>

@@ -80,6 +80,7 @@ public class RegisterTabFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Validate validate = new Validate();
+                String user = til_user.getText().toString();
                 String mail = til_correo.getText().toString();
                 String pass = til_contrasena.getText().toString();
                 String repass = til_RContrasena.getText().toString();
@@ -94,6 +95,7 @@ public class RegisterTabFragment extends Fragment {
                     }
                     if (chkAccept.isChecked()) {
                         Intent intent = new Intent(view.getContext(), PreferencesActivity.class);
+                        intent.putExtra("user", user);
                         startActivity(intent);
                     }
                 }

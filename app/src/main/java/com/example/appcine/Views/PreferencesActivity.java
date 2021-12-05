@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.appcine.R;
@@ -14,7 +15,8 @@ import com.example.appcine.R;
 public class PreferencesActivity extends AppCompatActivity {
 
     private Button btnPreferences;
-    private TextView btnSkip;
+    private TextView tvSkip, tvUserName;
+    private CheckBox comedia, historia, cFinccion, romance, thriller, misterio, drama, horror, accion, guerra, musical, sHeroes, animacion, rMovie, fantasia, deportes;
 
 
     @Override
@@ -26,6 +28,12 @@ public class PreferencesActivity extends AppCompatActivity {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         btnPreferences = findViewById(R.id.btnRegPreferences);
+        tvSkip = findViewById(R.id.txtSkip);
+        tvUserName = findViewById(R.id.tvUserName);
+
+        Intent intent = getIntent();
+        String user = intent.getStringExtra("user");
+        tvUserName.setText(" "+user);
 
 
         btnPreferences.setOnClickListener(new View.OnClickListener() {
@@ -36,10 +44,8 @@ public class PreferencesActivity extends AppCompatActivity {
             }
         });
 
-        btnSkip = findViewById(R.id.txtSkip);
 
-
-        btnSkip.setOnClickListener(new View.OnClickListener() {
+        tvSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Dashboard.class);
