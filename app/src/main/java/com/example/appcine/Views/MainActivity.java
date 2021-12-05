@@ -5,6 +5,7 @@ import androidx.core.view.WindowCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.appcine.Adapters.LoginAdapter;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Edge to edge screen
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         //Referencias a widgets
         tabLayout = findViewById(R.id.tab_layout);

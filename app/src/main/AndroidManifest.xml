@@ -12,12 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCine">
         <activity
+            android:name=".Views.UserConfigsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.CommentsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Views.MovieDetailItem"
             android:exported="false" />
         <activity
             android:name=".Views.Dashboard"
-            android:theme="@style/Theme.AppCine.NoStatusBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCine.NoStatusBar" />
         <activity
             android:name=".Views.PreferencesActivity"
             android:exported="true" />

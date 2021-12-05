@@ -91,7 +91,6 @@ public class RegisterTabFragment extends Fragment {
                         System.out.println(users.get(i).toString());
                     }
                     if (chkAccept.isChecked()) {
-                        Toast.makeText(getActivity().getApplicationContext(), "mail: " + mail + ", Password: " + pass + ", RepPassword: " + repass + ", Bday: " + bday, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(view.getContext(), PreferencesActivity.class);
                         startActivity(intent);
                     }

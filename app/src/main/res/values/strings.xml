@@ -53,21 +53,29 @@
     <string name="chkRoadmovie">Road\nMovie</string>
     <string name="chkFantasy">Fantasía</string>
     <string name="chkSports">Deportes</string>
-    <!-- TODO: Remove or change this placeholder text -->
 
-
-    <!-- Dashboard -->
-    <!-- Textos menú lateral principal-->
-    <!-- Strings used for fragments for navigation -->
 
     <!-- Spinner -->
     <!--Movie item -->
     <string name="release_date">Estreno:</string>
     <string name="date">2020-12-12</string>
 
+    <!-- Detail Movie Item -->
+    <string name="usersOpinions"> Opinión de los usuarios</string>
+    <string name="movieItemDetails">Detalles de la película</string>
+
     <!-- Textos mensaje usuario -->
     <string name="opinionUserName">Nombre del usuario</string>
     <string name="opinionUserMessage">Aquí</string>
+
+    <!-- Textos user configs layout -->
+    <string name="tvAccountInfo">Información de mi cuenta</string>
+    <string name="userConfigName">nombreUsuario</string>
+    <string name="userConfigMail">ejemplo.ejemplo@email.com</string>
+    <string name="userConfigPass">contraseña del usuario</string>
+    <string name="userConfigBday">2021/02/02</string>
+    <string name="btnEdit">Editar datos</string>
+    <string name="btnSave">Guardar datos</string>
 
 
 </resources>

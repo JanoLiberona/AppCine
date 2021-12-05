@@ -12,7 +12,10 @@
         <entry key="..\:/Users/HP/Desktop/Taller/AppCine/app/src/main/res/layout/activity_splash.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/arrow_down.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/drawable/btn_shape.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/drawable/edit_text_message.xml" value="0.41759259259259257" />
         <entry key="app/src/main/res/drawable/edit_text_shape.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.46205128205128204" />
+        <entry key="app/src/main/res/drawable/rounded_button.xml" value="0.41759259259259257" />
         <entry key="app/src/main/res/drawable/view_background.xml" value="0.46927083333333336" />
         <entry key="app/src/main/res/drawable/view_dadr_background.xml" value="0.45925925925925926" />
         <entry key="app/src/main/res/drawable/view_dark_background.xml" value="0.45925925925925926" />
@@ -21,6 +24,7 @@
         <entry key="app/src/main/res/drawable/view_user_avatar_rounded.xml" value="0.46205128205128204" />
         <entry key="app/src/main/res/font/autour_one.xml" value="0.4758974358974359" />
         <entry key="app/src/main/res/font/convergence.xml" value="0.4758974358974359" />
+        <entry key="app/src/main/res/layout/activity_comments.xml" value="0.40217391304347827" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.45" />
         <entry key="app/src/main/res/layout/activity_login_tab_fragment.xml" value="0.453125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
@@ -29,6 +33,7 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_register_tab_fragment.xml" value="0.453125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22036474164133737" />
+        <entry key="app/src/main/res/layout/activity_user_configs.xml" value="0.40217391304347827" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.3736413043478261" />
         <entry key="app/src/main/res/layout/fragment_preferences.xml" value="0.32447916666666665" />
         <entry key="app/src/main/res/layout/header.xml" value="0.32447916666666665" />

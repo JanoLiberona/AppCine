@@ -1,6 +1,7 @@
 package com.example.appcine.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.WindowCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,8 +12,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.appcine.Adapters.MovieAdapter;
@@ -42,6 +45,7 @@ public class Dashboard extends AppCompatActivity {
     ImageView header;
     Spinner spinner;
     List<String> listCategorias;
+    ImageButton userAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,7 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         header = findViewById(R.id.header);
         spinner = findViewById(R.id.spinner);
+        userAvatar = findViewById(R.id.ibtnUserAvatar);
 
         Glide.with(this).load(R.drawable.spider).into(header);
 
@@ -98,6 +103,14 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        userAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Dashboard.this, UserConfigsActivity.class);
+                startActivity(intent);
+                Toast.makeText(Dashboard.this, "Hola", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //Tarea Asíncrona
         //GetData getData = new GetData();

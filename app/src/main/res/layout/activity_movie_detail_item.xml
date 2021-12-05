@@ -28,11 +28,11 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="20dp"
-                android:text="Detalles de la película"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="50dp"
+                android:text="@string/movieItemDetails"
                 android:textColor="#b7bac4"
-                android:textSize="28dp"
+                android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,7 @@
                         android:fontFamily="sans-serif-black"
                         android:text="Nombre película"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textColor="#b7bac4"
+                        android:textColor="#e3e3eb"
                         android:textSize="28dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +157,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1234"
-                        android:textColor="#b7bac4"
+                        android:textColor="#e3e3eb"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/lfLike"
                         app:layout_constraintHorizontal_bias="0.95"
@@ -182,8 +182,8 @@
                         android:layout_width="315dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:text="Aquí va el resumen o reseña de la película qie se trae desde la api"
-                        android:textColor="#b7bac4"
+                        android:text="Aquí va el resumen o reseña de la película que se trae desde la api"
+                        android:textColor="#e3e3eb"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.971"
@@ -207,34 +207,94 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:text="Opiniones de notros usuarios"
+                android:layout_marginRight="40dp"
+                android:text="@string/usersOpinions"
                 android:textColor="#b7bac4"
-                android:textSize="23dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
-                android:layout_height="450dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="55dp"
                 app:cardBackgroundColor="#262837"
                 app:cardCornerRadius="18dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvComments"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.312" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvMessageUserImage"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="5dp"
+                        app:cardElevation="5dp"
+                        android:outlineAmbientShadowColor="@color/black"
+                        android:outlineSpotShadowColor="@color/black"
+                        app:cardCornerRadius="60dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.05"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.08">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/boy" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <EditText
+                        android:id="@+id/etMessage"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/edit_text_message"
+                        android:elevation="5dp"
+                        android:hint="Escribe tu opinión"
+                        android:minHeight="48dp"
+                        android:inputType="textPersonName"
+                        android:textColor="#b7bac4"
+                        android:textColorHint="#707281"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/cvMessageUserImage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/cvMessageUserImage"
+                        app:layout_constraintTop_toTopOf="@+id/cvMessageUserImage"
+                        app:layout_constraintVertical_bias="0.666" />
+
+                    <ImageButton
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button"
+                        android:elevation="5dp"
+                        android:src="@drawable/ic_baseline_send_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/cvMessageUserImage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.25"
+                        app:layout_constraintStart_toEndOf="@+id/etMessage"
+                        app:layout_constraintTop_toTopOf="@+id/cvMessageUserImage"
+                        app:layout_constraintVertical_bias="0.5" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvComments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etMessage"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 

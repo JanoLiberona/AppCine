@@ -6,6 +6,7 @@ import androidx.core.view.WindowCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,9 @@ public class MovieDetailItem extends AppCompatActivity {
 
         //Edge to edge screen
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
+        //Scroll when select a editText
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         TextView titleName = findViewById(R.id.titleName);
         //TextView titleId = findViewById(R.id.titleId);

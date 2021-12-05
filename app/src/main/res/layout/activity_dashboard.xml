@@ -16,23 +16,39 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.002"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/spider" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="150dp"
+        android:layout_width="175dp"
         android:layout_height="28dp"
         android:background="@drawable/view_spinner"
         android:popupBackground="@drawable/view_spinner"
         android:text="Selecciona categoría"
-        android:textColor="#b7bac4"
+        android:textColor="#e3e3eb"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.984"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.925" />
+
+    <ImageButton
+        android:id="@+id/ibtnUserAvatar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/boy"
+        android:background="@drawable/rounded_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header"
+        app:layout_constraintVertical_bias="0.32"/>
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
