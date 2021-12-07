@@ -254,6 +254,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="1dp"
+                        android:layout_marginBottom="10dp"
                         android:background="@drawable/edit_text_message"
                         android:elevation="5dp"
                         android:hint="Escribe tu opinión"
@@ -287,13 +288,16 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvComment"
                         android:layout_width="wrap_content"
+                        android:minHeight="257dp"
+                        android:maxHeight="350dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
                         android:layout_marginBottom="40dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/etMessage"
-                        app:layout_constraintVertical_bias="1.0" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

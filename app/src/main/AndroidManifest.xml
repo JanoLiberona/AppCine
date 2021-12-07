@@ -3,6 +3,7 @@
     package="com.example.appcine">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -13,9 +14,6 @@
         android:theme="@style/Theme.AppCine">
         <activity
             android:name=".Views.UserConfigsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Views.CommentsActivity"
             android:exported="false" />
         <activity
             android:name=".Views.MovieDetailItem"

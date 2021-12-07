@@ -8,13 +8,11 @@ public class Validate {
 
     //Validación contraseña
     public boolean checkPassLength(String pass) {
-        boolean result = false;
-        if(pass.length() > 8) {
-            result = true;
+        if(pass.length() >= 8) {
+            return true;
         } else {
-            result = false;
+            return false;
         }
-        return result;
     }
 
     //Validación correo

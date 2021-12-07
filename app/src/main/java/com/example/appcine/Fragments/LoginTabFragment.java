@@ -1,5 +1,6 @@
 package com.example.appcine.Fragments;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -17,13 +18,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appcine.Database.AppDatabase;
 import com.example.appcine.Views.Dashboard;
 import com.example.appcine.R;
 import com.example.appcine.Helpers.Validate;
 import com.example.appcine.Views.MainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginTabFragment extends Fragment {
 
@@ -32,8 +39,8 @@ public class LoginTabFragment extends Fragment {
     TextView tvTitle, forgetPass;
     Button btnLogin;
     ImageView iconEmail, iconPass;
-    String mail, pass;
     CardView cvLogin;
+    private FirebaseAuth mAuth;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedEditor;
@@ -51,6 +58,7 @@ public class LoginTabFragment extends Fragment {
         iconEmail = root.findViewById(R.id.iconEmail);
         iconPass = root.findViewById(R.id.iconPass);
         cvLogin = root.findViewById(R.id.cv_login);
+        mAuth = FirebaseAuth.getInstance();
 
         //Animaciones
         btnLogin.setTranslationY(800);
@@ -87,10 +95,23 @@ public class LoginTabFragment extends Fragment {
                         sharedEditor.putString("passUser", pass);
                         sharedEditor.commit();
                         sharedEditor.apply();
-                        Intent intent = new Intent(view.getContext(), Dashboard.class);
-                        intent.putExtra("mail", mail);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
+
+                        //Integración con firebase Auth
+                        mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                if (user != null) {
+                                    Intent intent = new Intent(view.getContext(), Dashboard.class);
+                                    intent.putExtra("mail", mail);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                } else {
+                                    showMessage(task.getException().getMessage());
+                                }
+                            }
+                        });
+
                     }
 
                 } else {
@@ -129,4 +150,7 @@ public class LoginTabFragment extends Fragment {
         return count;
     }
 
+    private void showMessage(String text) {
+        Toast.makeText(getActivity(),text,Toast.LENGTH_LONG).show();
+    }
 }

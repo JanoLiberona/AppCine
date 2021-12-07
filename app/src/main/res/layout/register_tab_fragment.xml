@@ -10,14 +10,14 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="#262837"
         app:cardCornerRadius="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26">
+        app:layout_constraintVertical_bias="0.18">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,10 +33,43 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.043" />
+                app:layout_constraintVertical_bias="0.014" />
+
+            <ImageButton
+                android:id="@+id/iBtnaddUserAvatar"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/rounded_button"
+                android:scaleType="fitCenter"
+                android:src="@drawable/add_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.597"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtRegistro"
+                app:layout_constraintVertical_bias="0.111" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtRegistro"
+                app:layout_constraintVertical_bias="0.060000002">
+
+                <ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/boy" />
+
+            </androidx.cardview.widget.CardView>
 
             <EditText
                 android:id="@+id/etUserName"
@@ -60,12 +93,12 @@
                 android:id="@+id/ivUserRegisterIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.106"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtRegistro" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
             <ImageView
                 android:id="@+id/iconEmail"
@@ -178,15 +211,15 @@
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text_message"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:hint="@string/reg_tilBdate"
                 android:minHeight="48dp"
                 android:textColor="#b7bac4"
                 android:textColorHint="#707281"
                 android:textSize="15dp"
-                android:clickable="false"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.216"
@@ -196,18 +229,18 @@
 
             <CheckBox
                 android:id="@+id/chkTerminos"
-                android:layout_width="225dp"
-                android:layout_height="51dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="199dp"
+                android:layout_height="46dp"
+
                 android:shadowRadius="10"
                 android:text="@string/reg_chkCondiciones"
                 android:textColor="#c4c7ca"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.993"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etUserBday"
-                app:layout_constraintVertical_bias="0.448" />
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,8 +260,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.183"
+        app:layout_constraintVertical_bias="0.085"
         app:strokeColor="@color/black" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

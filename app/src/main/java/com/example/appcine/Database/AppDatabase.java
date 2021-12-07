@@ -1,6 +1,7 @@
 package com.example.appcine.Database;
 
-import androidx.fragment.app.FragmentActivity;
+import android.content.Context;
+
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -18,7 +19,7 @@ public abstract  class AppDatabase extends RoomDatabase {
     public abstract UsersDAO usersDAO();
     public abstract CommentDAO commentDAO();
 
-    public static AppDatabase getInstance(FragmentActivity context){
+    public static AppDatabase getInstance(Context context){
 
         if(INSTANCE == null){
             INSTANCE = Room.databaseBuilder(context, AppDatabase.class,"appCine-db").allowMainThreadQueries()

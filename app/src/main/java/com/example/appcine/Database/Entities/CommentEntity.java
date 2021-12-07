@@ -19,9 +19,23 @@ public class CommentEntity {
     @ColumnInfo(name = "comment")
     String comment;
 
-    public CommentEntity(@NonNull String uName, @NonNull String comment) {
+    @NonNull
+    @ColumnInfo(name = "movieID")
+    String movieID;
+
+    @NonNull
+    public String getMovieID() {
+        return movieID;
+    }
+
+    public void setMovieID(@NonNull String movieID) {
+        this.movieID = movieID;
+    }
+
+    public CommentEntity(@NonNull String uName, @NonNull String comment, @NonNull String movieID) {
         this.uName = uName;
         this.comment = comment;
+        this.movieID = movieID;
     }
 
     public Long getId() {

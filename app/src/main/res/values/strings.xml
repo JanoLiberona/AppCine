@@ -15,7 +15,7 @@
     <!-- TEXTOS DE REGISTRO -->
     <string name="reg_title">Registrarse</string>
     <string name="reg_tilMail">ejemplo@correo.cl</string>
-    <string name="reg_tilPass">Ingrese contraseña</string>
+    <string name="reg_tilPass">Contraseña mayor a 8 caracteres</string>
     <string name="reg_tilRpass">Repetir su contraseña</string>
     <string name="reg_tilBdate">Fecha de nacimiento</string>
     <string name="reg_chkCondiciones">Acepto las condiciones</string>
@@ -23,6 +23,7 @@
 
     <!-- ERRORES -->
     <string name="campo_nulo">El campo no debe estar vacío</string>
+    <string name="passLenght">La contraseña debe tener al menos 8 caracteres</string>
     <string name="error_login_correoFormat">El formato de correo debe ser mail@dom.cl</string>
     <string name="no_coinciden_pass">Las contraseñas no coinciden</string>
     <string name="ingresar_fecha">Debe ingresar fecha de nacimiento</string>

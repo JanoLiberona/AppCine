@@ -52,14 +52,15 @@ public class CommentModelClass {
     }
 
     public static ArrayList<CommentModelClass> listComments(Context context){
-        AppDatabase database = AppDatabase.getInstance((FragmentActivity) context.getApplicationContext());
+        AppDatabase database = AppDatabase.getInstance(context.getApplicationContext());
         List<CommentEntity> commentEntities = database.commentDAO().getAll();
-        ArrayList<CommentModelClass> items = new ArrayList<CommentModelClass>();
+        ArrayList<CommentModelClass> comments = new ArrayList<CommentModelClass>();
+        comments.clear();
         for(int i = 0; i<commentEntities.size(); i++){
             CommentEntity comment = commentEntities.get(i);
             int res = R.drawable.boy;
-            items.add(new CommentModelClass(comment.getComment(),comment.getuName(),res,comment.getId()));
+            comments.add(new CommentModelClass(comment.getComment(),comment.getuName(),res,comment.getId()));
         }
-        return items;
+        return comments;
     }
 }
