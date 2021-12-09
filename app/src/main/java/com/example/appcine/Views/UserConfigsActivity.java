@@ -1,5 +1,6 @@
 package com.example.appcine.Views;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -13,18 +14,33 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.appcine.Database.AppDatabase;
 import com.example.appcine.Database.Entities.UserEntity;
 import com.example.appcine.Helpers.Validate;
 import com.example.appcine.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.List;
 
@@ -32,11 +48,16 @@ public class UserConfigsActivity extends AppCompatActivity {
 
     ImageView userAvatarImage;
     EditText userName, userMail, userBday, userPass;
-    Button edit, save;
+    Button edit, save, btnLikedMovies, btnPreferences;
     ImageButton newUserImage;
+    TextView logout;
     static int PReqCode = 1;
     static int REQUESTCODE = 1;
     Uri pickedImgUri;
+    FirebaseAuth mAuth;
+    StorageReference storageReference;
+    FirebaseFirestore fstore;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +78,35 @@ public class UserConfigsActivity extends AppCompatActivity {
         edit = findViewById(R.id.btnConfigEdit);
         save = findViewById(R.id.btnConfigSave);
         newUserImage = findViewById(R.id.iBtnAddUserImage);
+        logout = findViewById(R.id.tvCerrarSesion);
+        btnLikedMovies = findViewById(R.id.btnLikedMovies);
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        fstore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/"+currentUser.getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(UserConfigsActivity.this).load(uri).into(userAvatarImage);
+            }
+        });
+
 
         //Selección de una foto desde la galeria
         newUserImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    checkAndRequestforPermission();
+                } else {
+                    openGallery();
+                }
+            }
+        });
+
+        userAvatarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (Build.VERSION.SDK_INT >= 21) {
@@ -88,14 +135,21 @@ public class UserConfigsActivity extends AppCompatActivity {
         userPass.setFocusable(false);
         userPass.setText(pass);
 
+        save.setVisibility(View.INVISIBLE);
+
         //Botón edit permite que los edit text puedan ser editados
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userName.setFocusableInTouchMode(true);
+                userName.requestFocus();
+                userName.setSelection(userName.getText().length());
                 userMail.setFocusableInTouchMode(true);
                 userBday.setFocusableInTouchMode(true);
                 userPass.setFocusableInTouchMode(true);
+                save.setVisibility(View.VISIBLE);
+                edit.setVisibility(View.INVISIBLE);
+                showMessage(getString(R.string.editData));
             }
         });
 
@@ -118,14 +172,33 @@ public class UserConfigsActivity extends AppCompatActivity {
                     userEntity.setPassword(editedPass);
                     userEntity.setBday(editedBday);
                     database.usersDAO().update(userEntity);
+                    showMessage(getString(R.string.dataSavedSucces));
+                    save.setVisibility(View.INVISIBLE);
+                    edit.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserConfigsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnLikedMovies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserConfigsActivity.this, LikedMoviesActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
-
-    /* ** Metodos ** */
+    
 
     //Método para preguntar y aceptar los permisos para la galería
     private void checkAndRequestforPermission() {
@@ -142,11 +215,11 @@ public class UserConfigsActivity extends AppCompatActivity {
 
     //Método para abrir la galería
     private void openGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        galleryIntent.setType("image/*");
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(galleryIntent, REQUESTCODE);
     }
 
+    //método que obtiene desde la galería la foto y la setea en el widget de la imagen de usuario
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -156,8 +229,58 @@ public class UserConfigsActivity extends AppCompatActivity {
             //Guardamos la foto
             pickedImgUri = data.getData();
             userAvatarImage.setImageURI(pickedImgUri);
+
+            uploadImageToFirebase(pickedImgUri, mAuth.getCurrentUser());
         }
     }
+
+    //Método para subir la imagen a la cuenta de usuario en firebase
+    private void uploadImageToFirebase(Uri pickedImgUri, final FirebaseUser currentUser) {
+        StorageReference sReference = storageReference.child("users/"+currentUser.getUid()+"/profile.jpg");
+        sReference.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                sReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
+                        .setPhotoUri(uri)
+                        .build();
+
+                        Glide.with(UserConfigsActivity.this).load(uri).into(userAvatarImage);
+
+
+                        currentUser.updateProfile(profileUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                showMessage(getString(R.string.imageUpdated));
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                showMessage("No se pudo actualizar la imagen");
+                            }
+                        });
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                showMessage(getString(R.string.imageUpdatedFailure));
+            }
+        });
+    }
+
+    private void updateUserImage(Uri pickedImgUri) {
+
+    }
+
+    //Para mostrar mensaje toast
+    private void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
 
     //Validación para que los campos no queden nulos y tengan el formato correspondiente
     public int validarDatos() {
@@ -192,7 +315,13 @@ public class UserConfigsActivity extends AppCompatActivity {
 
         //Evitar pass null
         if (validate.checkNull(pass)){
-            userPass.setError(null);
+            //Evitar contraseña menor a 8 caracteres
+            if (validate.checkPassLength(pass)) {
+                userPass.setError(null);
+            } else {
+                userPass.setError(getString(R.string.passLenght));
+                count++;
+            }
         } else {
             userPass.setError(getString(R.string.campo_nulo));
             count++;
@@ -208,5 +337,13 @@ public class UserConfigsActivity extends AppCompatActivity {
 
 
         return count;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(UserConfigsActivity.this, Dashboard.class);
+        startActivity(intent);
     }
 }

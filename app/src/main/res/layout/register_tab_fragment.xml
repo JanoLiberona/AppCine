@@ -37,39 +37,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.014" />
 
-            <ImageButton
-                android:id="@+id/iBtnaddUserAvatar"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:background="@drawable/rounded_button"
-                android:scaleType="fitCenter"
-                android:src="@drawable/add_image"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.597"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtRegistro"
-                app:layout_constraintVertical_bias="0.111" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtRegistro"
-                app:layout_constraintVertical_bias="0.060000002">
-
-                <ImageView
-                    android:id="@+id/userImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/boy" />
-
-            </androidx.cardview.widget.CardView>
 
             <EditText
                 android:id="@+id/etUserName"
@@ -98,7 +65,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.106"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+                app:layout_constraintTop_toBottomOf="@+id/txtRegistro" />
 
             <ImageView
                 android:id="@+id/iconEmail"

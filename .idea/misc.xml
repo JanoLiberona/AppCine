@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/font/convergence.xml" value="0.4758974358974359" />
         <entry key="app/src/main/res/layout/activity_comments.xml" value="0.40217391304347827" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/activity_liked_movies.xml" value="0.42527173913043476" />
         <entry key="app/src/main/res/layout/activity_login_tab_fragment.xml" value="0.453125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_movie_detail_item.xml" value="0.375" />

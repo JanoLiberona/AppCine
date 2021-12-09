@@ -1,26 +1,29 @@
 package com.example.appcine.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.WindowCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.appcine.Adapters.MovieAdapter;
-import com.example.appcine.Models.MovieModelClass;
+import com.example.appcine.Models.MovieModel;
 import com.example.appcine.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,12 +43,13 @@ public class Dashboard extends AppCompatActivity {
     //TMDB API JSON link filtrado por populares: https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES
     private String JSON_URL = "";
 
-    List<MovieModelClass> movieList;
+    List<MovieModel> movieList;
     RecyclerView recyclerView;
-    ImageView header;
+    ImageView header, userAvatar, firebaseUserImage;
     Spinner spinner;
     List<String> listCategorias;
-    ImageButton userAvatar;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +64,22 @@ public class Dashboard extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         header = findViewById(R.id.header);
         spinner = findViewById(R.id.spinner);
-        userAvatar = findViewById(R.id.ibtnUserAvatar);
+        userAvatar = findViewById(R.id.ivUserAvatar);
 
-        Glide.with(this).load(R.drawable.spider).into(header);
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+        Glide.with(Dashboard.this).load(R.drawable.spider).into(header);
+
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/"+currentUser.getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(Dashboard.this).load(uri).into(userAvatar);
+            }
+        });
+
 
         //Spinner
         listCategorias = new ArrayList<String>();
@@ -74,9 +91,9 @@ public class Dashboard extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(R.layout.my_dropdown_item);
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+
                 GetData getData = new GetData();
                 switch (position) {
                     case 0:
@@ -103,17 +120,16 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+
         userAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Dashboard.this, UserConfigsActivity.class);
                 startActivity(intent);
+                onPause();
             }
         });
 
-        //Tarea Asíncrona
-        //GetData getData = new GetData();
-        //getData.execute();
 
         //No permite volver atrás
         onBackPressed();
@@ -179,7 +195,7 @@ public class Dashboard extends AppCompatActivity {
                 //Dentro del array recorremos los objetos que hayan
                 for(int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                    MovieModelClass model = new MovieModelClass();
+                    MovieModel model = new MovieModel();
                     model.setId(jsonObject1.getString("id"));
                     model.setName(jsonObject1.getString("title"));
                     model.setImg(jsonObject1.getString("poster_path"));
@@ -190,12 +206,11 @@ public class Dashboard extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             PutDataIntoRecyclerView(movieList);
         }
     }
 
-    private void PutDataIntoRecyclerView(List<MovieModelClass> movieList) {
+    private void PutDataIntoRecyclerView(List<MovieModel> movieList) {
         MovieAdapter adapter = new MovieAdapter(this, movieList);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapter);
@@ -217,5 +232,7 @@ public class Dashboard extends AppCompatActivity {
             }
         });
     }
+
+
 
 }

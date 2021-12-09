@@ -21,48 +21,87 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tvCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="5"
+                android:shadowRadius="10"
+                android:text="Cerrar sesión"
+                android:textAlignment="viewEnd"
+                android:textColor="#6b5ecd"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.905"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.765" />
+
+            <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="80dp"
                 android:text="@string/tvAccountInfo"
                 android:textColor="#b7bac4"
                 android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.252"
+                app:layout_constraintHorizontal_bias="0.26"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.025" />
+                app:layout_constraintVertical_bias="0.012" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="55dp"
                 app:cardBackgroundColor="#262837"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6">
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintVertical_bias="0.0">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
-                    <ImageView
-                        android:id="@+id/ivUserProfileImage"
-                        android:layout_width="450dp"
-                        android:layout_height="300dp"
-                        android:src="@drawable/boy"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvUserProfileImage"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        app:cardCornerRadius="100dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.050000012">
+
+                        <ImageView
+                            android:id="@+id/ivUserProfileImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/boy" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#2e303f"
+                        app:layout_constraintBottom_toTopOf="@+id/etUserConfigName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cvUserProfileImage" />
+
 
                     <ImageButton
                         android:id="@+id/iBtnAddUserImage"
@@ -70,12 +109,12 @@
                         android:layout_height="30dp"
                         android:background="@drawable/rounded_button"
                         android:src="@drawable/add_image"
-                        app:layout_constraintBottom_toBottomOf="@+id/ivUserProfileImage"
+                        app:layout_constraintBottom_toBottomOf="@+id/cvUserProfileImage"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.95"
+                        app:layout_constraintHorizontal_bias="0.825"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/ivUserProfileImage"
-                        app:layout_constraintVertical_bias="0.966" />
+                        app:layout_constraintTop_toTopOf="@+id/cvUserProfileImage"
+                        app:layout_constraintVertical_bias="0.923" />
 
                     <ImageView
                         android:id="@+id/ivUserIcon"
@@ -84,10 +123,10 @@
                         android:src="@drawable/user"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.242"
-                        app:layout_constraintStart_toStartOf="@+id/ivUserProfileImage"
-                        app:layout_constraintTop_toBottomOf="@+id/ivUserProfileImage"
-                        app:layout_constraintVertical_bias="0.09" />
+                        app:layout_constraintHorizontal_bias="0.114"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cvUserProfileImage"
+                        app:layout_constraintVertical_bias="0.095" />
 
                     <EditText
                         android:id="@+id/etUserConfigName"
@@ -208,16 +247,15 @@
                         android:layout_marginBottom="25dp"
                         android:backgroundTint="#6b5ecd"
                         android:text="@string/btnEdit"
+                        android:textAlignment="center"
                         android:textColor="#ded9f4"
                         android:textStyle="bold"
-                        android:textAlignment="center"
                         app:cornerRadius="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.19"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/etUserConfigBday"
-                        app:layout_constraintVertical_bias="0.219" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <Button
                         android:id="@+id/btnConfigSave"
@@ -230,14 +268,71 @@
                         app:cornerRadius="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.229"
-                        app:layout_constraintStart_toEndOf="@+id/btnConfigEdit"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/btnConfigEdit"
                         app:layout_constraintVertical_bias="0.0" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#2e303f"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnConfigEdit"
+                        app:layout_constraintVertical_bias="0.125" />
+
+                    <Button
+                        android:id="@+id/btnLikedMovies"
+                        android:layout_width="180dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Películas que me gustan"
+                        android:textColor="#ded9f4"
+                        android:textStyle="bold"
+                        app:cornerRadius="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view"
+                        app:layout_constraintVertical_bias="0.03" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#2e303f"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnLikedMovies"
+                        app:layout_constraintVertical_bias="0.125" />
+
+                    <Button
+                        android:id="@+id/btnPreferences"
+                        android:layout_width="180dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Preferencias de género"
+                        android:textColor="#ded9f4"
+                        android:textStyle="bold"
+                        app:cornerRadius="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view3"
+                        app:layout_constraintVertical_bias="0.238" />
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

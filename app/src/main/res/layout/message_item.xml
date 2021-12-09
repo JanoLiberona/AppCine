@@ -39,6 +39,7 @@
                 app:layout_constraintVertical_bias="0.295">
 
                 <ImageView
+                    android:id="@+id/ivCurrentImageUSer"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/boy" />
@@ -65,11 +66,11 @@
 
                     <TextView
                         android:id="@+id/tvNombreUsuario"
-                        android:layout_width="wrap_content"
+                        android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="1dp"
                         android:text="Nombre de usuario"
-                        android:textColor="#9999a5"
+                        android:textColor="#B3B3BD"
                         android:textSize="14dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,8 +82,22 @@
 
 
                     <TextView
+                        android:id="@+id/tvCommentDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:20"
+                        android:textColor="#9999a5"
+                        android:textSize="12dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvNombreUsuario"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.719"
+                        app:layout_constraintStart_toEndOf="@+id/tvNombreUsuario"
+                        app:layout_constraintTop_toTopOf="@+id/tvNombreUsuario"
+                        app:layout_constraintVertical_bias="0.042" />
+
+                    <TextView
                         android:id="@+id/tvUserOpinionComment"
-                        android:layout_width="220dp"
+                        android:layout_width="225dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:text="Aquí va la opinión del usuario a cerca de la película o serie que ha visto."

@@ -112,11 +112,11 @@ public class LoginTabFragment extends Fragment {
                             }
                         });
 
+                    } else {
+                        tilUser.setError("Correo o contraseña son inválidos");
+                        tilPass.setError("Correo o contraseña son inválidos");
                     }
 
-                } else {
-                    tilUser.setError("Correo o contraseña son inválidos");
-                    tilPass.setError("Correo o contraseña son inválidos");
                 }
             }
         });

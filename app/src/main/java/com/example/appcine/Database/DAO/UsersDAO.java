@@ -7,7 +7,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.appcine.Database.Entities.UserEntity;
-import com.example.appcine.Models.User;
 
 import java.util.List;
 

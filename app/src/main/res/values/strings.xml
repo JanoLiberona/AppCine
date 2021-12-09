@@ -78,5 +78,11 @@
     <string name="btnEdit">Editar datos</string>
     <string name="btnSave">Guardar datos</string>
 
+    <!-- Textos de la configuración de usuario -->
+    <string name="imageUpdated">Imegn actualizada</string>
+    <string name="imageUpdatedFailure"> Falló la actualización de la imagen</string>
+    <string name="dataSavedSucces"> Datos guardados correctamente </string>
+    <string name="editData">Actualiza tus datos</string>
+
 
 </resources>

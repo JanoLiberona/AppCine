@@ -156,19 +156,19 @@
                         android:id="@+id/tcLikesCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1234"
+                        android:text=""
                         android:textColor="#e3e3eb"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/lfLike"
-                        app:layout_constraintHorizontal_bias="0.95"
+                        app:layout_constraintHorizontal_bias="0.922"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/lfLike"
-                        app:layout_constraintVertical_bias="0.194" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="me gusta"
+                        android:text=""
                         android:textColor="#b7bac4"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/lfLike"

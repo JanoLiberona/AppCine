@@ -1,11 +1,11 @@
 package com.example.appcine.Models;
 
-public class User {
+public class UserModel {
     private String name;
     private String mail;
     private String pass;
 
-    public User(String name, String mail, String pass) {
+    public UserModel(String name, String mail, String pass) {
         this.name = name;
         this.mail = mail;
         this.pass = pass;
@@ -13,7 +13,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserModel{" +
                 "mail='" + mail + '\'' +
                 ", pass=" + pass +
                 '}';

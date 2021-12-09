@@ -34,20 +34,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.925" />
 
-    <ImageButton
-        android:id="@+id/ibtnUserAvatar"
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:src="@drawable/boy"
-        android:background="@drawable/rounded_button"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:cardCornerRadius="60dp"
+        app:strokeWidth="1.5dp"
+        app:strokeColor="#b7bac4"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/header"
-        app:layout_constraintVertical_bias="0.32"/>
+        app:layout_constraintVertical_bias="0.24000001">
 
+        <ImageView
+            android:id="@+id/ivUserAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/boy"
+            android:scaleType="centerCrop"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

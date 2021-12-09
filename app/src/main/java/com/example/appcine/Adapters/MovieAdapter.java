@@ -1,7 +1,6 @@
 package com.example.appcine.Adapters;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.appcine.Models.MovieModelClass;
+import com.example.appcine.Models.MovieModel;
 import com.example.appcine.R;
 
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<MovieModelClass> mData;
+    private List<MovieModel> mData;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -32,7 +31,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         this.listener = listener;
     }
 
-    public MovieAdapter(Context mContext, List<MovieModelClass> mData) {
+    public MovieAdapter(Context mContext, List<MovieModel> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }

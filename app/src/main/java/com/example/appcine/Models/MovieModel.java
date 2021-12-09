@@ -1,10 +1,10 @@
 package com.example.appcine.Models;
 
-public class MovieModelClass {
+public class MovieModel {
 
     String id, name, img, rdate, overview;
 
-    public MovieModelClass(String id, String name, String img, String rdate, String overview) {
+    public MovieModel(String id, String name, String img, String rdate, String overview) {
         this.id = id;
         this.name = name;
         this.img = img;
@@ -12,7 +12,7 @@ public class MovieModelClass {
         this.overview = overview;
     }
 
-    public MovieModelClass() {
+    public MovieModel() {
     }
 
     public String getRdate() {
