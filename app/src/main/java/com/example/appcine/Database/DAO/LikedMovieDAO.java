@@ -15,13 +15,13 @@ public interface LikedMovieDAO {
     @Insert
     void insert(LikedMovieEntity likedMovieEntity);
 
-    @Query("SELECT * FROM likedMovies WHERE id = :id")
-    LikedMovieEntity getLikedMovie(Long id);
+    @Query("SELECT * FROM likedMovies WHERE movieId = :movieId")
+    LikedMovieEntity getLikedMovie(String movieId);
 
     @Query("SELECT * FROM likedMovies")
     List<LikedMovieEntity> getAll();
 
-    @Query("SELECT count(id) from likedMovies")
+    @Query("SELECT count(movieId) from likedMovies")
     int getDataCount();
 
     @Update

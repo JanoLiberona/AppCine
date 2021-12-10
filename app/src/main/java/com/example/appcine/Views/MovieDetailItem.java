@@ -57,7 +57,7 @@ public class MovieDetailItem extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     static String COMMENT_KEY = "Comment" ;
     String MovieKey;
-    Long id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,22 +102,28 @@ public class MovieDetailItem extends AppCompatActivity {
         //Obteniendo los datos de la película actual para luego guardarlos en la base de datos
         AppDatabase database = AppDatabase.getInstance(MovieDetailItem.this);
         LikedMovieEntity likedMovieEntity = new LikedMovieEntity(movieid, title, img, rDate, overview);
-
-        //Animación botón like
+        System.out.println(database.likedMovieDAO().getLikedMovie(movieid));
+        boolean isLiked;
+        if (database.likedMovieDAO().getLikedMovie(movieid) == null) {
+            isLiked = false;
+        } else {
+            isLiked = true;
+            like.playAnimation();
+        }
+        //Animación botón like y guardado o elimado de datos en la base de datos
+        boolean finalIsLiked = isLiked;
         like.setOnClickListener(new View.OnClickListener() {
-            boolean isAnimated = false;
+            boolean isLikedYet = finalIsLiked;
             @Override
             public void onClick(View view) {
-                if (!isAnimated) {
+                if (isLikedYet == false) {
                     like.setSpeed(2f);
-                    isAnimated = true;
                     like.playAnimation();
-
                     database.likedMovieDAO().insert(likedMovieEntity);
                 } else {
                     like.setSpeed(-3F);
-                    isAnimated = false;
                     like.playAnimation();
+                    database.likedMovieDAO().delete(likedMovieEntity);
                 }
             }
         });
@@ -206,5 +212,12 @@ public class MovieDetailItem extends AppCompatActivity {
         calendar.setTimeInMillis(time);
         String date = DateFormat.format("dd-MM-yyyy",calendar).toString();
         return date;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        onResume();
     }
 }

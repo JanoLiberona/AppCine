@@ -8,12 +8,9 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "likedMovies")
 public class LikedMovieEntity {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    Long id;
-
+    @PrimaryKey(autoGenerate = false)
     @NonNull
-    @ColumnInfo(name = "movieid")
+    @ColumnInfo(name = "movieId")
     String movieId;
 
     @NonNull
@@ -38,14 +35,6 @@ public class LikedMovieEntity {
         this.img = img;
         this.rdate = rdate;
         this.overview = overview;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @NonNull

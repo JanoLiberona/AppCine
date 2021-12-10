@@ -244,5 +244,4 @@ public class RegisterTabFragment extends Fragment {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
 
-
 }

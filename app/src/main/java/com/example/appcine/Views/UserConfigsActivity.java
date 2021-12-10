@@ -67,7 +67,7 @@ public class UserConfigsActivity extends AppCompatActivity {
         //Edge to edge screen
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
-        //Scroll when select a editText
+        //Scroll cuando se selecciona un edittext
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         userAvatarImage = findViewById(R.id.ivUserProfileImage);
@@ -166,6 +166,8 @@ public class UserConfigsActivity extends AppCompatActivity {
                 String editedPass = userPass.getText().toString();
                 String editedBday = userBday.getText().toString();
                 if (validarDatos() == 0) {
+                    currentUser.updateEmail(editedMail);
+                    currentUser.updatePassword(editedPass);
                     UserEntity userEntity = database.usersDAO().getUser(idUser).get(0);
                     userEntity.setName(editedUser);
                     userEntity.setMail(editedMail);
