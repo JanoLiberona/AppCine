@@ -152,6 +152,7 @@
 
                     </com.airbnb.lottie.LottieAnimationView>
 
+
                     <TextView
                         android:id="@+id/tcLikesCount"
                         android:layout_width="wrap_content"
@@ -160,22 +161,10 @@
                         android:textColor="#e3e3eb"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/lfLike"
-                        app:layout_constraintHorizontal_bias="0.922"
+                        app:layout_constraintHorizontal_bias="0.945"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/lfLike"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="#b7bac4"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/lfLike"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="@+id/tcLikesCount"
-                        app:layout_constraintTop_toBottomOf="@+id/tcLikesCount"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.277" />
 
                     <TextView
                         android:id="@+id/tvOverview"
@@ -215,7 +204,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
-                android:layout_height="wrap_content"
+                android:layout_height="480dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="55dp"
                 app:cardBackgroundColor="#262837"
@@ -230,20 +219,22 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_marginTop="5dp"
-                        app:cardElevation="5dp"
                         android:outlineAmbientShadowColor="@color/black"
                         android:outlineSpotShadowColor="@color/black"
                         app:cardCornerRadius="60dp"
+                        app:cardElevation="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.05"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.08">
+                        app:layout_constraintVertical_bias="0.060000002">
 
                         <ImageView
+                            android:id="@+id/ivImgCurrentUSer"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/boy" />
 
                     </androidx.cardview.widget.CardView>
@@ -258,8 +249,8 @@
                         android:background="@drawable/edit_text_message"
                         android:elevation="5dp"
                         android:hint="Escribe tu opinión"
-                        android:minHeight="48dp"
                         android:inputType="textPersonName"
+                        android:minHeight="48dp"
                         android:textColor="#b7bac4"
                         android:textColorHint="#707281"
                         android:textSize="15dp"
@@ -268,7 +259,7 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/cvMessageUserImage"
                         app:layout_constraintTop_toTopOf="@+id/cvMessageUserImage"
-                        app:layout_constraintVertical_bias="0.666" />
+                        app:layout_constraintVertical_bias="0.13999999" />
 
                     <ImageButton
                         android:id="@+id/ibtnAddComment"
@@ -285,19 +276,47 @@
                         app:layout_constraintTop_toTopOf="@+id/cvMessageUserImage"
                         app:layout_constraintVertical_bias="0.5" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvComment"
-                        android:layout_width="wrap_content"
-                        android:minHeight="257dp"
-                        android:maxHeight="350dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="35dp"
-                        android:layout_marginBottom="40dp"
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#2e303f"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/etMessage"
+                        app:layout_constraintVertical_bias="0.08"
+                        tools:layout_editor_absoluteX="0dp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etMessage"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintTop_toBottomOf="@+id/view2">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvComment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="false"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView8"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

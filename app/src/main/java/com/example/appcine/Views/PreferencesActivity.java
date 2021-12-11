@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.appcine.R;
 
 public class PreferencesActivity extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class PreferencesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Dashboard.class);
                 startActivity(intent);
+                Animatoo.animateShrink(PreferencesActivity.this);
             }
         });
 
@@ -50,9 +52,17 @@ public class PreferencesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Dashboard.class);
                 startActivity(intent);
+                Animatoo.animateShrink(PreferencesActivity.this);
             }
         });
 
+
+        onBackPressed();
+
+    }
+
+    @Override
+    public void onBackPressed(){
 
     }
 }

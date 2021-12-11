@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCine">
         <activity
+            android:name=".Views.ForgotPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.AvatarSelectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".Views.LikedMoviesActivity"
             android:exported="false" />
         <activity

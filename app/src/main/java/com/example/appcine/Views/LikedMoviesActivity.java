@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.appcine.Adapters.CustomAdapter;
 import com.example.appcine.Adapters.MovieAdapter;
 import com.example.appcine.Database.AppDatabase;
@@ -62,6 +63,7 @@ public class LikedMoviesActivity extends AppCompatActivity {
                 intent.putExtra("release_date", rdate);
                 intent.putExtra("overview", overview);
                 startActivity(intent);
+                Animatoo.animateInAndOut(LikedMoviesActivity.this);
             }
         });
     }
@@ -71,5 +73,12 @@ public class LikedMoviesActivity extends AppCompatActivity {
         super.onRestart();
         finish();
         startActivity(getIntent());
+    }
+
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Animatoo.animateSlideDown(LikedMoviesActivity.this);
     }
 }

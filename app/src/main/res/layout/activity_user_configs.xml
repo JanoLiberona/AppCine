@@ -165,7 +165,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_message"
                         android:hint="@string/userConfigMail"
-                        android:inputType="textPersonName"
+                        android:inputType="textEmailAddress"
                         android:minHeight="48dp"
                         android:textColor="#b7bac4"
                         android:textColorHint="#707281"

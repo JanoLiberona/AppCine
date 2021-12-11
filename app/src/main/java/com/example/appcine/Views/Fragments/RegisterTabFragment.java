@@ -1,4 +1,4 @@
-package com.example.appcine.Fragments;
+package com.example.appcine.Views.Fragments;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -28,29 +28,23 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.appcine.Database.AppDatabase;
 import com.example.appcine.Database.Entities.UserEntity;
+import com.example.appcine.Views.AvatarSelectionActivity;
 import com.example.appcine.Views.PreferencesActivity;
 import com.example.appcine.R;
 import com.example.appcine.Helpers.Validate;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
-import java.io.InputStream;
 import java.util.Calendar;
 import java.util.List;
-import java.util.UUID;
 
 public class RegisterTabFragment extends Fragment {
 
@@ -59,11 +53,7 @@ public class RegisterTabFragment extends Fragment {
     CheckBox chkAccept;
     int mDay, mMonth, mYear;
     FirebaseAuth mAuth;
-    ImageView userImage;
-    ImageButton newUserImage;
-    static int PReqCode = 1;
-    static int REQUESTCODE = 1000;
-    Uri pickedImgUri;
+    ProgressBar progressBar;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.register_tab_fragment, container, false);
@@ -75,6 +65,9 @@ public class RegisterTabFragment extends Fragment {
         til_bday = root.findViewById(R.id.etUserBday);
         chkAccept = root.findViewById(R.id.chkTerminos);
         btnRegister = root.findViewById(R.id.btnRegistrar);
+        progressBar = root.findViewById(R.id.pbRegisterProgressBar);
+
+        progressBar.setVisibility(View.INVISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -127,12 +120,15 @@ public class RegisterTabFragment extends Fragment {
 
                     if (chkAccept.isChecked()) {
                         createUserAccount(mail, user, pass);
-                        Intent intent = new Intent(view.getContext(), PreferencesActivity.class);
+                        progressBar.setVisibility(View.VISIBLE);
+                        Intent intent = new Intent(view.getContext(), AvatarSelectionActivity.class);
                         intent.putExtra("user", user);
                         intent.putExtra("mail", mail);
                         intent.putExtra("bday", bday);
                         intent.putExtra("pass", pass);
+                        progressBar.setVisibility(View.GONE);
                         startActivity(intent);
+                        Animatoo.animateSwipeLeft(getActivity());
                     }
 
                 }
@@ -230,7 +226,7 @@ public class RegisterTabFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    showMessage("Cuenta creada");
+
                 } else {
                     showMessage("Creación de cuenta falló: "+ task.getException().getMessage());
                 }

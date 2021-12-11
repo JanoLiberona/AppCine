@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.appcine.Database.AppDatabase;
@@ -56,8 +57,8 @@ public class UserConfigsActivity extends AppCompatActivity {
     Uri pickedImgUri;
     FirebaseAuth mAuth;
     StorageReference storageReference;
-    FirebaseFirestore fstore;
     FirebaseUser currentUser;
+    AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,15 +84,9 @@ public class UserConfigsActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
-        fstore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference profileRef = storageReference.child("users/"+currentUser.getUid()+"/profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(UserConfigsActivity.this).load(uri).into(userAvatarImage);
-            }
-        });
+
+        Glide.with(this).load(currentUser.getPhotoUrl()).into(userAvatarImage);
 
 
         //Selección de una foto desde la galeria
@@ -118,14 +113,14 @@ public class UserConfigsActivity extends AppCompatActivity {
         });
 
         //Obteniendo los datos de la base datos.
-        AppDatabase database = AppDatabase.getInstance(UserConfigsActivity.this);
+        database = AppDatabase.getInstance(UserConfigsActivity.this);
         Long idUser = database.usersDAO().getAll().get(0).getId();
         String user = database.usersDAO().getUser(idUser).get(0).getName();
         String mail = database.usersDAO().getUser(idUser).get(0).getMail();
         String bday = database.usersDAO().getUser(idUser).get(0).getBday();
         String pass = database.usersDAO().getUser(idUser).get(0).getPassword();
 
-        //settea los datos traidos de la base de datos y los campos quedan no disponibles para ser escritos
+        //Setteando los datos traidos de la base de datos y los campos quedan no disponibles para ser escritos
         userName.setFocusable(false);
         userName.setText(user);
         userMail.setFocusable(false);
@@ -166,6 +161,7 @@ public class UserConfigsActivity extends AppCompatActivity {
                 String editedPass = userPass.getText().toString();
                 String editedBday = userBday.getText().toString();
                 if (validarDatos() == 0) {
+                    updateUserName(userName.getText().toString());
                     currentUser.updateEmail(editedMail);
                     currentUser.updatePassword(editedPass);
                     UserEntity userEntity = database.usersDAO().getUser(idUser).get(0);
@@ -184,8 +180,10 @@ public class UserConfigsActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mAuth.signOut();
                 Intent intent = new Intent(UserConfigsActivity.this, MainActivity.class);
                 startActivity(intent);
+                Animatoo.animateSlideRight(UserConfigsActivity.this);
             }
         });
 
@@ -194,6 +192,7 @@ public class UserConfigsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserConfigsActivity.this, LikedMoviesActivity.class);
                 startActivity(intent);
+                Animatoo.animateSlideUp(UserConfigsActivity.this);
             }
         });
 
@@ -232,12 +231,12 @@ public class UserConfigsActivity extends AppCompatActivity {
             pickedImgUri = data.getData();
             userAvatarImage.setImageURI(pickedImgUri);
 
-            uploadImageToFirebase(pickedImgUri, mAuth.getCurrentUser());
+            uploadImageToFirebase(userName.getText().toString(),pickedImgUri, mAuth.getCurrentUser());
         }
     }
 
     //Método para subir la imagen a la cuenta de usuario en firebase
-    private void uploadImageToFirebase(Uri pickedImgUri, final FirebaseUser currentUser) {
+    private void uploadImageToFirebase(final String name, Uri pickedImgUri, final FirebaseUser currentUser) {
         StorageReference sReference = storageReference.child("users/"+currentUser.getUid()+"/profile.jpg");
         sReference.putFile(pickedImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -246,8 +245,9 @@ public class UserConfigsActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
-                        .setPhotoUri(uri)
-                        .build();
+                                .setDisplayName(name)
+                                .setPhotoUri(uri)
+                                .build();
 
                         Glide.with(UserConfigsActivity.this).load(uri).into(userAvatarImage);
 
@@ -274,8 +274,17 @@ public class UserConfigsActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUserImage(Uri pickedImgUri) {
+    public void updateUserName(String uname) {
+        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder().setDisplayName(uname).build();
 
+        currentUser.updateProfile(profileUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    showMessage("Datos actualizados");
+                }
+            }
+        });
     }
 
     //Para mostrar mensaje toast
@@ -347,5 +356,6 @@ public class UserConfigsActivity extends AppCompatActivity {
 
         Intent intent = new Intent(UserConfigsActivity.this, Dashboard.class);
         startActivity(intent);
+        Animatoo.animateSlideLeft(UserConfigsActivity.this);
     }
 }

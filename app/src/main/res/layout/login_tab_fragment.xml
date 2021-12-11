@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1f1d2c"
-    tools:context=".Fragments.LoginTabFragment">
+    tools:context=".Views.Fragments.LoginTabFragment">
 
     <Button
         android:id="@+id/btn_login"
@@ -23,6 +23,17 @@
         app:layout_constraintTop_toBottomOf="@+id/cv_login"
         app:layout_constraintVertical_bias="0.224"
         app:strokeColor="@color/black" />
+
+    <ProgressBar
+        android:id="@+id/pbLoginProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_login"
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_login"

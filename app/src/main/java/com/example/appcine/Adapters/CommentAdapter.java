@@ -60,7 +60,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
         public CommentViewHolder(View itemView) {
             super(itemView);
-            imgUser = itemView.findViewById(R.id.cvUserAvatar);
+            imgUser = itemView.findViewById(R.id.ivCurrentImageUSer);
             tvName = itemView.findViewById(R.id.tvNombreUsuario);
             tvContent = itemView.findViewById(R.id.tvUserOpinionComment);
             tvDate = itemView.findViewById(R.id.tvCommentDate);

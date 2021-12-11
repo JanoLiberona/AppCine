@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.appcine.Fragments.LoginTabFragment;
-import com.example.appcine.Fragments.RegisterTabFragment;
+import com.example.appcine.Views.Fragments.LoginTabFragment;
+import com.example.appcine.Views.Fragments.RegisterTabFragment;
 
 //clase para cambiar entre tabs
 public class LoginAdapter extends FragmentPagerAdapter {

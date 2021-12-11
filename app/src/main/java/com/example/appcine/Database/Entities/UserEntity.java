@@ -25,11 +25,10 @@ public class UserEntity {
     @ColumnInfo(name = "password")
     String password;
 
-    @NonNull
     @ColumnInfo(name = "bday")
     String bday;
 
-    public UserEntity(@NonNull String name ,@NonNull String mail, @NonNull String bday, @NonNull String password) {
+    public UserEntity(@NonNull String name ,@NonNull String mail,String bday, @NonNull String password) {
         this.name = name;
         this.mail = mail;
         this.bday = bday;
@@ -76,7 +75,7 @@ public class UserEntity {
         return bday;
     }
 
-    public void setBday(@NonNull String bday) {
+    public void setBday(String bday) {
         this.bday = bday;
     }
 

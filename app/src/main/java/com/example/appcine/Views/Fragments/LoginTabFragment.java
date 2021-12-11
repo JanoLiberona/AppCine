@@ -1,4 +1,4 @@
-package com.example.appcine.Fragments;
+package com.example.appcine.Views.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -17,13 +17,16 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.appcine.Database.AppDatabase;
 import com.example.appcine.Views.Dashboard;
 import com.example.appcine.R;
 import com.example.appcine.Helpers.Validate;
+import com.example.appcine.Views.ForgotPassActivity;
 import com.example.appcine.Views.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,7 +43,9 @@ public class LoginTabFragment extends Fragment {
     Button btnLogin;
     ImageView iconEmail, iconPass;
     CardView cvLogin;
+    ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedEditor;
@@ -58,7 +63,19 @@ public class LoginTabFragment extends Fragment {
         iconEmail = root.findViewById(R.id.iconEmail);
         iconPass = root.findViewById(R.id.iconPass);
         cvLogin = root.findViewById(R.id.cv_login);
+        progressBar = root.findViewById(R.id.pbLoginProgressBar);
+
         mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            Intent intent = new Intent(getContext(), Dashboard.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            Animatoo.animateShrink(getActivity());
+        }
+
+        progressBar.setVisibility(View.INVISIBLE);
 
         //Animaciones
         btnLogin.setTranslationY(800);
@@ -73,6 +90,7 @@ public class LoginTabFragment extends Fragment {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         sharedEditor = sharedPreferences.edit();
 
+
         String existMailUser = sharedPreferences.getString("mailUser","");
         String existpassUser = sharedPreferences.getString("passUser","");
         if(!existMailUser.equals("") && !existpassUser.equals("")){
@@ -83,6 +101,8 @@ public class LoginTabFragment extends Fragment {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnLogin.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
                 Validate validate = new Validate();
                 String mail = tilUser.getText().toString();
                 String pass = tilPass.getText().toString();
@@ -106,6 +126,7 @@ public class LoginTabFragment extends Fragment {
                                     intent.putExtra("mail", mail);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
+                                    Animatoo.animateShrink(getActivity());
                                 } else {
                                     showMessage(task.getException().getMessage());
                                 }
@@ -115,11 +136,28 @@ public class LoginTabFragment extends Fragment {
                     } else {
                         tilUser.setError("Correo o contraseña son inválidos");
                         tilPass.setError("Correo o contraseña son inválidos");
+                        btnLogin.setVisibility(View.VISIBLE);
                     }
 
+                } else {
+                    btnLogin.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+        /** Funcion deshabilitada para la entrega de la solemne, ya que la recuperación de la contraseña no se puede setear en la BD local**/
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getActivity(), "Función deshabilitada", Toast.LENGTH_SHORT).show();
+                /*
+                Intent intent = new Intent(getActivity(), ForgotPassActivity.class);
+                startActivity(intent);
+                Animatoo.animateSlideUp(getActivity()); */
+            }
+        });
+
         return root;
     }
 
