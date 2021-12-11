@@ -9,35 +9,45 @@
     <string name="login_fogetPass">Olvidé mi contraseña</string>
 
 
-    <!-- TEXTOS DE DASHBOARD -->
-    <string name="dash_welcome">Bienvenid@a tu dashboard</string>
-    <string name="dash_presentation">Aquí podrás ver, listar, editar y eliminar tus comentarios. ¡Disfruta tu estadía!</string>
+    <!-- TEXTOS DE OLVIDASTE LA CONTRASEÑA -->
+    <string name="IngresarCorreo">Ingresa tu correo</string>
+    <string name="RecuperaContra">Recupera tu contraseña</string>
+    <string name="btnrecuperarContra">Recuperar</string>
+    <string name="correoEnviado">Se te ha enviado un correo para obtener nueva contraseña</string>
+    <string name="correoInvalido">Correo invalid. No se ha podido recuperar</string>
 
 
     <!-- TEXTOS DE REGISTRO -->
     <string name="reg_title">Registrarse</string>
-    <string name="reg_mail">Correo</string>
     <string name="reg_tilMail">ejemplo@correo.cl</string>
-    <string name="reg_pass">Contraseña</string>
-    <string name="reg_tilPass">Ingrese contraseña</string>
-    <string name="reg_rpass">Repetir contraseña</string>
+    <string name="reg_tilPass">Contraseña mayor a 8 caracteres</string>
     <string name="reg_tilRpass">Repetir su contraseña</string>
-    <string name="reg_bdate">Fecha de nacimiento</string>
     <string name="reg_tilBdate">Fecha de nacimiento</string>
     <string name="reg_chkCondiciones">Acepto las condiciones</string>
-    <string name="reg_btnRegister">Registrarme</string>
 
 
     <!-- ERRORES -->
-    <string name="campo_nulo">El campo debe ser distinto de nulo</string>
+    <string name="campo_nulo">El campo no debe estar vacío</string>
+    <string name="passLenght">La contraseña debe tener al menos 8 caracteres</string>
     <string name="error_login_correoFormat">El formato de correo debe ser mail@dom.cl</string>
     <string name="no_coinciden_pass">Las contraseñas no coinciden</string>
     <string name="ingresar_fecha">Debe ingresar fecha de nacimiento</string>
 
+    <!-- Textos selección imagen -->
+    <string name="userAvatarSelection">Selecciona una foto para tu perfil</string>
+    <string name="btnNext">Siguiente</string>
+    <string name="acceptPermission">Debes aceptar los permisos para seleccionar una imagen</string>
+    <string name="uploadingImage">Configurando imagen seleccionada en tu perfil. Por favor, espera</string>
+    <string name="uploadingImageError">No se pudo actualizar la imagen</string>
+    <string name="imageUpdated">Perfil creado</string>
+    <string name="imageUpdatedFailure"> Falló la actualización de la imagen</string>
+    <string name="dataSavedSucces"> Datos guardados correctamente </string>
+    <string name="editData">Actualiza tus datos</string>
+
 
     <!-- TEXTOS DE PREFERENCIAS -->
     <string name="pref_title">Preferencias</string>
-    <string name="pref_saludoUsuario">Hola Usuario!</string>
+    <string name="pref_saludoUsuario">Hola </string>
     <string name="pref_seleccioneGeneros">Selecciona tus géneros favoritos</string>
     <string name="pref_btnRegistrar">Finalizar</string>
     <string name="pref_skip">Omitir paso</string>
@@ -60,25 +70,29 @@
     <string name="chkRoadmovie">Road\nMovie</string>
     <string name="chkFantasy">Fantasía</string>
     <string name="chkSports">Deportes</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-    <!-- Dashboard -->
-    <string name="dashTitle">Lo nuevo</string>
-    <!-- Textos menú lateral principal-->
-    <string name="home">Dashboard</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_dashboard">Dashboard</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <!-- Spinner -->
+    <!--Movie item -->
+    <string name="release_date">Estreno:</string>
+    <string name="date">2020-12-12</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Detail Movie Item -->
+    <string name="usersOpinions"> Opinión de los usuarios</string>
+    <string name="movieItemDetails">Detalles de la película</string>
+
+    <!-- Textos mensaje usuario -->
+    <string name="opinionUserName">Nombre del usuario</string>
+    <string name="opinionUserMessage">Aquí</string>
+
+    <!-- Textos user configs layout -->
+    <string name="tvAccountInfo">Información de mi cuenta</string>
+    <string name="userConfigName">nombreUsuario</string>
+    <string name="userConfigMail">ejemplo.ejemplo@email.com</string>
+    <string name="userConfigPass">contraseña del usuario</string>
+    <string name="userConfigBday">2021/02/02</string>
+    <string name="btnEdit">Editar datos</string>
+    <string name="btnSave">Guardar datos</string>
 
 
 </resources>

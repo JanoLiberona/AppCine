@@ -3,6 +3,7 @@
     package="com.example.appcine">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,19 +13,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCine">
         <activity
-            android:name=".MovieDetailItem"
+            android:name=".Views.ForgotPassActivity"
             android:exported="false" />
         <activity
-            android:name=".Dashboard"
+            android:name=".Views.AvatarSelectionActivity"
             android:exported="false" />
         <activity
-            android:name=".PreferencesActivity"
+            android:name=".Views.LikedMoviesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.UserConfigsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.MovieDetailItem"
+            android:exported="false" />
+        <activity
+            android:name=".Views.Dashboard"
+            android:exported="false"
+            android:theme="@style/Theme.AppCine.NoStatusBar" />
+        <activity
+            android:name=".Views.PreferencesActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Views.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Views.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

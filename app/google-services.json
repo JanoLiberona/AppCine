@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "939605257941",
+    "project_id": "appcine-ba909",
+    "storage_bucket": "appcine-ba909.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939605257941:android:80fb2cc45e34c97899fc5c",
+        "android_client_info": {
+          "package_name": "com.example.appcine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939605257941-c8doqump5hv5aq9du22vpj2266k9ib86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe7pKbLgEbYpe4UhvvbjCdfOTDOTldsEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939605257941-c8doqump5hv5aq9du22vpj2266k9ib86.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
