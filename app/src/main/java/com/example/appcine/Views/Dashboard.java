@@ -88,7 +88,7 @@ public class Dashboard extends AppCompatActivity {
         listCategorias.add("Popular");
         listCategorias.add("Más votados");
         listCategorias.add("Próximos");
-        listCategorias.add("Para mí");
+        //listCategorias.add("Para mí");
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.my_selected_item, listCategorias);
         arrayAdapter.setDropDownViewResource(R.layout.my_dropdown_item);
         spinner.setAdapter(arrayAdapter);
@@ -113,9 +113,9 @@ public class Dashboard extends AppCompatActivity {
                         getData.execute();
                         progressBar.setVisibility(View.VISIBLE);
                         break;
-                    case 3:
+                    /*case 3:
                         JSON_URL = "https://api.themoviedb.org/3/movie/popular?api_key=3b7f550a381e29852ffb145508b4bdb5&language=es-ES";
-                        break;
+                        break;*/
                 }
 
 
