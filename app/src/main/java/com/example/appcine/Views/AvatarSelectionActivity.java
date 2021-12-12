@@ -107,7 +107,9 @@ public class AvatarSelectionActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userNameIntent = userName.getText().toString();
                 Intent intent = new Intent(AvatarSelectionActivity.this, PreferencesActivity.class);
+                intent.putExtra("userName", userNameIntent);
                 startActivity(intent);
                 Animatoo.animateSwipeLeft(AvatarSelectionActivity.this);
             }

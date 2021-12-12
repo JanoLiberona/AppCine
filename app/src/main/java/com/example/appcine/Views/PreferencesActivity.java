@@ -12,12 +12,17 @@ import android.widget.TextView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.appcine.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PreferencesActivity extends AppCompatActivity {
 
     private Button btnPreferences;
     private TextView tvSkip, tvUserName;
     private CheckBox comedia, historia, cFinccion, romance, thriller, misterio, drama, horror, accion, guerra, musical, sHeroes, animacion, rMovie, fantasia, deportes;
+    FirebaseAuth  mAuth;
+    FirebaseUser currentUser;
+
 
 
     @Override
@@ -32,8 +37,9 @@ public class PreferencesActivity extends AppCompatActivity {
         tvSkip = findViewById(R.id.txtSkip);
         tvUserName = findViewById(R.id.tvUserName);
 
+
         Intent intent = getIntent();
-        String user = intent.getStringExtra("user");
+        String user = intent.getStringExtra("userName");
         tvUserName.setText(" "+user);
 
 
