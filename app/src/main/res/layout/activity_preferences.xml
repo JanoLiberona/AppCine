@@ -4,75 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PreferencesActivity">
-
+    android:background="#13111a"
+    tools:context=".Views.PreferencesActivity">
 
 
     <TextView
-        android:id="@+id/txtPreferencias"
+        android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/convergence"
-        android:shadowColor="#000000"
-        android:shadowDx="2"
-        android:shadowDy="5"
-        android:shadowRadius="10"
-        android:text="@string/pref_title"
-        android:textColor="#FDFCFC"
+        android:text="Usuario"
+        android:textColor="#fcfbfd"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
-
-
-
-    <TextView
-        android:id="@+id/txtSaludo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/convergence"
-        android:shadowColor="#000000"
-        android:shadowDx="2"
-        android:shadowDy="5"
-        android:shadowRadius="10"
-        android:text="@string/pref_saludoUsuario"
-        android:textColor="#FDFCFC"
-        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPreferencias"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtGenero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/convergence"
         android:shadowColor="#000000"
         android:shadowDx="2"
         android:shadowDy="5"
         android:shadowRadius="10"
         android:text="@string/pref_seleccioneGeneros"
         android:textAlignment="textStart"
-        android:textColor="#FDFCFC"
+        android:textColor="#fcfbfd"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSaludo"
-        app:layout_constraintVertical_bias="0.185" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/view_background"
+        android:background="@drawable/view_light_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.78"
@@ -85,38 +57,36 @@
             android:id="@+id/btnRegPreferences"
             android:layout_width="130dp"
             android:layout_height="60dp"
-            android:backgroundTint="#FFC107"
-            android:fontFamily="@font/convergence"
             android:text="@string/pref_btnRegistrar"
+            android:textColor="#ded9f4"
             android:textStyle="bold"
-            app:cornerRadius="30dp"
+            android:backgroundTint="#6b5ecd"
+            app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.281"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.97"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
+            app:layout_constraintVertical_bias="0.83" />
 
         <TextView
             android:id="@+id/txtSkip"
             android:layout_width="94dp"
             android:layout_height="18dp"
-            android:fontFamily="@font/convergence"
             android:shadowColor="#000000"
             android:shadowDx="2"
             android:shadowDy="5"
             android:shadowRadius="10"
             android:text="@string/pref_skip"
-            android:textColor="@color/black"
+            android:textColor="#6b5ecd"
+            android:textStyle="bold"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.438"
             app:layout_constraintStart_toEndOf="@+id/btnRegPreferences"
             app:layout_constraintTop_toTopOf="@+id/btnRegPreferences"
-            app:layout_constraintVertical_bias="0.322" />
+            app:layout_constraintVertical_bias="0.16000003" />
 
 
         <ScrollView
@@ -129,7 +99,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.206">
+            app:layout_constraintVertical_bias="0.050000012">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,14 +109,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -170,12 +141,12 @@
                                 android:id="@+id/chkComedy"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkComedy"
+                                android:textColor="#717383"
                                 android:textSize="15sp" />
 
                         </RelativeLayout>
@@ -186,6 +157,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -209,10 +181,10 @@
                                 android:id="@+id/chkHistory"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkHistory"
                                 android:textSize="15sp" />
@@ -224,14 +196,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -243,7 +216,6 @@
                                 android:id="@+id/iconScifi"
                                 android:layout_width="79dp"
                                 android:layout_height="79dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentEnd="true"
@@ -256,10 +228,10 @@
                                 android:id="@+id/chkScifi"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkSciFi"
                                 android:textSize="15sp" />
@@ -272,6 +244,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -295,10 +268,10 @@
                                 android:id="@+id/chkRomance"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkRomance"
                                 android:textSize="15sp" />
@@ -310,14 +283,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -341,12 +315,12 @@
                                 android:id="@+id/chkThriller"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkThriller"
+                                android:textColor="#717383"
                                 android:textSize="15sp" />
 
                         </RelativeLayout>
@@ -357,6 +331,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -380,10 +355,10 @@
                                 android:id="@+id/chkMystery"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkMystery"
                                 android:textSize="15sp" />
@@ -395,14 +370,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -426,10 +402,10 @@
                                 android:id="@+id/chkDrama"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkDrama"
                                 android:textSize="15sp" />
@@ -442,6 +418,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -465,10 +442,10 @@
                                 android:id="@+id/chkHorror"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkHorror"
                                 android:textSize="15sp" />
@@ -480,14 +457,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -511,10 +489,10 @@
                                 android:id="@+id/chkAccion"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkAction"
                                 android:textSize="15sp" />
@@ -527,6 +505,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -550,10 +529,10 @@
                                 android:id="@+id/chkWar"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkWar"
                                 android:textSize="15sp" />
@@ -565,14 +544,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -596,10 +576,10 @@
                                 android:id="@+id/chkMusica"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkMusical"
                                 android:textSize="15sp" />
@@ -612,6 +592,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -635,10 +616,10 @@
                                 android:id="@+id/chkSuperHero"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkSuperhero"
                                 android:textSize="15sp" />
@@ -650,14 +631,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -681,10 +663,10 @@
                                 android:id="@+id/chkAnimation"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkAnimation"
                                 android:textSize="15sp" />
@@ -697,6 +679,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -720,10 +703,10 @@
                                 android:id="@+id/chkRoadMovie"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkRoadmovie"
                                 android:textSize="15sp" />
@@ -735,14 +718,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="175dp"
-                    android:padding="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -766,10 +750,10 @@
                                 android:id="@+id/chkFantasy"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkFantasy"
                                 android:textSize="15sp" />
@@ -782,6 +766,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        app:cardBackgroundColor="#2e303f"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="5dp">
 
@@ -805,10 +790,10 @@
                                 android:id="@+id/chkSports"
                                 android:layout_width="120dp"
                                 android:layout_height="60dp"
-                                android:fontFamily="@font/convergence"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginTop="85dp"
                                 android:layout_marginEnd="10dp"
+                                android:textColor="#717383"
                                 android:paddingLeft="-5sp"
                                 android:text="@string/chkSports"
                                 android:textSize="15sp" />
