@@ -39,12 +39,18 @@ import com.example.appcine.Views.PreferencesActivity;
 import com.example.appcine.R;
 import com.example.appcine.Helpers.Validate;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RegisterTabFragment extends Fragment {
 
@@ -53,6 +59,7 @@ public class RegisterTabFragment extends Fragment {
     CheckBox chkAccept;
     int mDay, mMonth, mYear;
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
     ProgressBar progressBar;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,6 +77,7 @@ public class RegisterTabFragment extends Fragment {
         progressBar.setVisibility(View.INVISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
 
         //Calendar bday
@@ -112,15 +120,23 @@ public class RegisterTabFragment extends Fragment {
                 final String pass = til_contrasena.getText().toString();
                 final String bday = til_bday.getText().toString();
                 if (validarDatos() == 0) {
-                    AppDatabase database = AppDatabase.getInstance(getActivity());
-                    UserEntity userEntity = new UserEntity(user, mail, bday, pass);
-                    System.out.println(userEntity);
-                    database.usersDAO().insert(userEntity);
-                    List<UserEntity> users = database.usersDAO().getAll();
+                    Map<String, Object> usuario = new HashMap<>();
+                    usuario.put("userName", user);
+                    usuario.put("birthDay", bday);
 
                     if (chkAccept.isChecked()) {
                         createUserAccount(mail, user, pass);
                         progressBar.setVisibility(View.VISIBLE);
+                        db.collection("users").add(usuario).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                showMessage("No se pudieron agregar algunos datos a la base de datos: \n" + e);
+                            }
+                        });
                         Intent intent = new Intent(view.getContext(), AvatarSelectionActivity.class);
                         intent.putExtra("user", user);
                         intent.putExtra("mail", mail);

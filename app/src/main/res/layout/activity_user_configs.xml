@@ -72,7 +72,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvUserProfileImage"
@@ -158,7 +158,7 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="@+id/ivUserIcon"
                         app:layout_constraintTop_toBottomOf="@+id/ivUserIcon"
-                        app:layout_constraintVertical_bias="0.02" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <EditText
                         android:id="@+id/etUserConfigEmail"
@@ -207,45 +207,12 @@
                         app:layout_constraintHorizontal_bias="0.177"
                         app:layout_constraintStart_toEndOf="@+id/imageView4"
                         app:layout_constraintTop_toTopOf="@+id/imageView4"
-                        app:layout_constraintVertical_bias="0.5" />
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="17dp"
-                        android:src="@drawable/calendar"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="@+id/imageView4"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <EditText
-                        android:id="@+id/etUserConfigBday"
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_message"
-                        android:hint="@string/userConfigBday"
-                        android:inputType="date"
-                        android:minHeight="48dp"
-                        android:textColor="#b7bac4"
-                        android:textColorHint="#707281"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-                        app:layout_constraintEnd_toEndOf="@+id/etUserConfigPass"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/imageView5"
-                        app:layout_constraintTop_toTopOf="@+id/imageView5"
-                        app:layout_constraintVertical_bias="0.5" />
+                        app:layout_constraintVertical_bias="0.19" />
 
                     <Button
                         android:id="@+id/btnConfigEdit"
                         android:layout_width="130dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginBottom="25dp"
                         android:backgroundTint="#6b5ecd"
                         android:text="@string/btnEdit"
                         android:textAlignment="center"
@@ -255,8 +222,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/etUserConfigBday"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintTop_toBottomOf="@+id/etUserConfigPass"
+                        app:layout_constraintVertical_bias="0.19" />
 
                     <Button
                         android:id="@+id/btnConfigSave"
@@ -270,8 +237,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/btnConfigEdit"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintTop_toBottomOf="@+id/etUserConfigPass"
+                        app:layout_constraintVertical_bias="0.193" />
 
                     <View
                         android:id="@+id/view"
@@ -283,14 +250,14 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/btnConfigEdit"
-                        app:layout_constraintVertical_bias="0.125" />
+                        app:layout_constraintVertical_bias="0.108" />
 
                     <Button
                         android:id="@+id/btnLikedMovies"
                         android:layout_width="180dp"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Películas que me gustan"
                         android:textColor="#ded9f4"
                         android:textStyle="bold"

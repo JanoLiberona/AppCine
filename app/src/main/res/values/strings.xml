@@ -39,7 +39,7 @@
     <string name="acceptPermission">Debes aceptar los permisos para seleccionar una imagen</string>
     <string name="uploadingImage">Configurando imagen seleccionada en tu perfil. Por favor, espera</string>
     <string name="uploadingImageError">No se pudo actualizar la imagen</string>
-    <string name="imageUpdated">Perfil creado</string>
+    <string name="imageUpdated">Foto de perfil actualizada</string>
     <string name="imageUpdatedFailure"> Falló la actualización de la imagen</string>
     <string name="dataSavedSucces"> Datos guardados correctamente </string>
     <string name="editData">Actualiza tus datos</string>

@@ -10,7 +10,6 @@ import androidx.core.view.WindowCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,9 +25,6 @@ import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.appcine.Database.AppDatabase;
-import com.example.appcine.Database.Entities.UserEntity;
 import com.example.appcine.Helpers.Validate;
 import com.example.appcine.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,12 +34,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.util.List;
 
 public class UserConfigsActivity extends AppCompatActivity {
 
@@ -58,7 +55,6 @@ public class UserConfigsActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     StorageReference storageReference;
     FirebaseUser currentUser;
-    AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +70,6 @@ public class UserConfigsActivity extends AppCompatActivity {
         userAvatarImage = findViewById(R.id.ivUserProfileImage);
         userName = findViewById(R.id.etUserConfigName);
         userMail = findViewById(R.id.etUserConfigEmail);
-        userBday = findViewById(R.id.etUserConfigBday);
         userPass = findViewById(R.id.etUserConfigPass);
         edit = findViewById(R.id.btnConfigEdit);
         save = findViewById(R.id.btnConfigSave);
@@ -112,23 +107,15 @@ public class UserConfigsActivity extends AppCompatActivity {
             }
         });
 
-        //Obteniendo los datos de la base datos.
-        database = AppDatabase.getInstance(UserConfigsActivity.this);
-        Long idUser = database.usersDAO().getAll().get(0).getId();
-        String user = database.usersDAO().getUser(idUser).get(0).getName();
-        String mail = database.usersDAO().getUser(idUser).get(0).getMail();
-        String bday = database.usersDAO().getUser(idUser).get(0).getBday();
-        String pass = database.usersDAO().getUser(idUser).get(0).getPassword();
+        //Obtieniendo datos desde firebaseAuth
+        String user = currentUser.getDisplayName();
+        String mail = currentUser.getEmail();
 
-        //Setteando los datos traidos de la base de datos y los campos quedan no disponibles para ser escritos
         userName.setFocusable(false);
         userName.setText(user);
         userMail.setFocusable(false);
         userMail.setText(mail);
-        userBday.setFocusable(false);
-        userBday.setText(bday);
         userPass.setFocusable(false);
-        userPass.setText(pass);
 
         save.setVisibility(View.INVISIBLE);
 
@@ -140,11 +127,9 @@ public class UserConfigsActivity extends AppCompatActivity {
                 userName.requestFocus();
                 userName.setSelection(userName.getText().length());
                 userMail.setFocusableInTouchMode(true);
-                userBday.setFocusableInTouchMode(true);
                 userPass.setFocusableInTouchMode(true);
                 save.setVisibility(View.VISIBLE);
                 edit.setVisibility(View.INVISIBLE);
-                showMessage(getString(R.string.editData));
             }
         });
 
@@ -152,27 +137,18 @@ public class UserConfigsActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userName.setFocusable(false);
-                userMail.setFocusable(false);
-                userBday.setFocusable(false);
-                userPass.setFocusable(false);
-                String editedUser = userName.getText().toString();
                 String editedMail = userMail.getText().toString();
                 String editedPass = userPass.getText().toString();
-                String editedBday = userBday.getText().toString();
                 if (validarDatos() == 0) {
                     updateUserName(userName.getText().toString());
                     currentUser.updateEmail(editedMail);
                     currentUser.updatePassword(editedPass);
-                    UserEntity userEntity = database.usersDAO().getUser(idUser).get(0);
-                    userEntity.setName(editedUser);
-                    userEntity.setMail(editedMail);
-                    userEntity.setPassword(editedPass);
-                    userEntity.setBday(editedBday);
-                    database.usersDAO().update(userEntity);
                     showMessage(getString(R.string.dataSavedSucces));
                     save.setVisibility(View.INVISIBLE);
                     edit.setVisibility(View.VISIBLE);
+                    userName.setFocusable(false);
+                    userMail.setFocusable(false);
+                    userPass.setFocusable(false);
                 }
             }
         });
@@ -196,10 +172,10 @@ public class UserConfigsActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
 
-    
 
     //Método para preguntar y aceptar los permisos para la galería
     private void checkAndRequestforPermission() {
@@ -299,7 +275,6 @@ public class UserConfigsActivity extends AppCompatActivity {
         String name = userName.getText().toString();
         String mail = userMail.getText().toString();
         String pass = userPass.getText().toString();
-        String bday = userBday.getText().toString();
 
         int count = 0;
 
@@ -324,6 +299,7 @@ public class UserConfigsActivity extends AppCompatActivity {
             count++;
         }
 
+
         //Evitar pass null
         if (validate.checkNull(pass)){
             //Evitar contraseña menor a 8 caracteres
@@ -337,15 +313,6 @@ public class UserConfigsActivity extends AppCompatActivity {
             userPass.setError(getString(R.string.campo_nulo));
             count++;
         }
-
-        //Evitar cumpleaños nulo
-        if(validate.checkNull(bday)){
-            userBday.setError(null);
-        } else {
-            userBday.setError(getString(R.string.campo_nulo));
-            count++;
-        }
-
 
         return count;
     }

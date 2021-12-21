@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCoinstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1f1d2c"
@@ -19,41 +20,95 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/spider" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="175dp"
-        android:layout_height="28dp"
-        android:background="@drawable/view_spinner"
-        android:popupBackground="@drawable/view_spinner"
-        android:text="Selecciona categoría"
-        android:textColor="#e3e3eb"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/header"
+        app:layout_constraintVertical_bias="0.24000001">
+
+        <EditText
+            android:id="@+id/etSearchView"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:background="@drawable/view_search_bar"
+            android:drawableLeft="@drawable/magnify"
+            android:hint="Busca tus películas favoritas"
+            android:inputType="textPersonName"
+            android:textColor="#b7bac4"
+            android:textColorHint="#707281"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/deleteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/etSearchView"
+            android:layout_alignBottom="@+id/etSearchView"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="9dp"
+            android:src="@drawable/close" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/header"
+        app:layout_constraintVertical_bias="0.85">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="175dp"
+            android:layout_height="28dp"
+            android:background="@drawable/view_spinner"
+            android:popupBackground="@drawable/view_spinner"
+            android:text="Selecciona categoría"
+            android:textColor="#e3e3eb" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/laExpandCollapse"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignEnd="@+id/spinner"
+            android:layout_alignBottom="@+id/spinner"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="0dp"
+            app:lottie_rawRes="@raw/expandcollapse" />
+
+    </RelativeLayout>
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="55dp"
         android:layout_height="55dp"
         app:cardCornerRadius="60dp"
-        app:strokeWidth="1.5dp"
-        app:strokeColor="#b7bac4"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/header"
-        app:layout_constraintVertical_bias="0.24000001">
+        app:layout_constraintVertical_bias="0.24000001"
+        app:strokeColor="#b7bac4"
+        app:strokeWidth="1.5dp">
 
         <ImageView
             android:id="@+id/ivUserAvatar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/boy"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/boy" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -71,6 +126,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.926">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="wrap_content"
@@ -78,11 +134,10 @@
             android:animateLayoutChanges="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.455"
+            app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.436" />
-
+            app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
             android:id="@+id/pbLoading"

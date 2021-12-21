@@ -16,6 +16,8 @@ import com.example.appcine.Adapters.MovieAdapter;
 import com.example.appcine.Database.AppDatabase;
 import com.example.appcine.Models.LikedMovieModel;
 import com.example.appcine.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ public class LikedMoviesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView likedMoviesCounter;
     Integer moviesCounter;
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class LikedMoviesActivity extends AppCompatActivity {
         movies = LikedMovieModel.listLikedMovies(LikedMoviesActivity.this);
         CustomAdapter adapter = new CustomAdapter(this, movies);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new CustomAdapter.onItemClickListener() {
             @Override

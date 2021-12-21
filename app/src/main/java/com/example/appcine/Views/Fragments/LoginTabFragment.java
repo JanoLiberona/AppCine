@@ -107,37 +107,22 @@ public class LoginTabFragment extends Fragment {
                 String mail = tilUser.getText().toString();
                 String pass = tilPass.getText().toString();
                 if (validarDatos() == 0) {
-                    AppDatabase database = AppDatabase.getInstance(getActivity());
-                    if (database.usersDAO().login(pass, mail).size() == 1) {
-                        Long idUser = database.usersDAO().login(pass, mail).get(0).getId();
-                        sharedEditor.putString("idUser", idUser.toString());
-                        sharedEditor.putString("mailUser", mail);
-                        sharedEditor.putString("passUser", pass);
-                        sharedEditor.commit();
-                        sharedEditor.apply();
 
-                        //Integración con firebase Auth
-                        mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                if (user != null) {
-                                    Intent intent = new Intent(view.getContext(), Dashboard.class);
-                                    intent.putExtra("mail", mail);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                    Animatoo.animateShrink(getActivity());
-                                } else {
-                                    showMessage(task.getException().getMessage());
-                                }
+                    mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            if (user != null) {
+                                Intent intent = new Intent(view.getContext(), Dashboard.class);
+                                intent.putExtra("mail", mail);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                Animatoo.animateShrink(getActivity());
+                            } else {
+                                showMessage(task.getException().getMessage());
                             }
-                        });
-
-                    } else {
-                        tilUser.setError("Correo o contraseña son inválidos");
-                        tilPass.setError("Correo o contraseña son inválidos");
-                        btnLogin.setVisibility(View.VISIBLE);
-                    }
+                        }
+                    });
 
                 } else {
                     btnLogin.setVisibility(View.VISIBLE);
@@ -151,10 +136,9 @@ public class LoginTabFragment extends Fragment {
             public void onClick(View view) {
 
                 Toast.makeText(getActivity(), "Función deshabilitada", Toast.LENGTH_SHORT).show();
-                /*
                 Intent intent = new Intent(getActivity(), ForgotPassActivity.class);
                 startActivity(intent);
-                Animatoo.animateSlideUp(getActivity()); */
+                Animatoo.animateSlideUp(getActivity());
             }
         });
 
